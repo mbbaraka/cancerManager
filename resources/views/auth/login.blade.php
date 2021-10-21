@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+{{-- <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -69,5 +69,41 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}
+<div class="az-signin-wrapper pt-5">
+    <div class="az-card-signin pt-5">
+      {{-- <h1 class="az-logo text-center">CMS</h1> --}}
+      <div class="az-signin-header">
+        <h2 class="text-center">Welcome back!</h2>
+        <h4>Please sign in to continue</h4>
+
+        <form method="POST" action="{{ route('login') }}">
+            @csrf
+          <div class="form-group">
+            <label>Email</label>
+            <input type="text" class="form-control @error('email') is-invalid @enderror" required autocomplete="email" placeholder="Enter your email" name="email" value="{{ old('email') }}">
+            @error('email')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
+          </div><!-- form-group -->
+          <div class="form-group">
+            <label>Password</label>
+            <input type="password" class="form-control @error('password') is-invalid @enderror" required placeholder="Enter your password" autocomplete="current-password" name="password">
+            @error('password')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
+          </div><!-- form-group -->
+          <button class="btn btn-az-primary btn-block" type="submit">Sign In</button>
+        </form>
+      </div><!-- az-signin-header -->
+      <div class="az-signin-footer">
+        <p><a href="{{ route('password.request') }}">Forgot password?</a></p>
+        {{-- <p>Don't have an account? <a href="page-signup.html">Create an Account</a></p> --}}
+      </div><!-- az-signin-footer -->
+    </div><!-- az-card-signin -->
+</div><!-- az-signin-wrapper -->
 @endsection
