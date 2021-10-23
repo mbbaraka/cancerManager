@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Routing\RouteGroup;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,6 +28,8 @@ Auth::routes();
 Route::middleware(['auth'])->group(function () {
 
     Route::get('/', 'App\Http\Controllers\HomeController@index')->name('home');
+
+    Route::get('/new-patients', 'App\Http\Controllers\PatientController@index')->name('new-patient');
 
 
 });
