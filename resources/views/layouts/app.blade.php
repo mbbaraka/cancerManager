@@ -98,9 +98,7 @@
         </nav> --}}
 
         <main class="py-4">
-            @include('partials.nav')
             @yield('content')
-            @include('partials.footer')
         </main>
     </div>
     {{-- <script src="{{ asset('cancerManager/lib/jquery/jquery.min.js') }}') }}"></script>

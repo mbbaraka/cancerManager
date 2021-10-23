@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+@include('partials.nav')
 
   <div class="az-content az-content-dashboard">
     <div class="container">
@@ -356,5 +357,6 @@
       </div><!-- az-content-body -->
     </div>
   </div><!-- az-content -->
+@include('partials.footer')
 
-  @endsection
+@endsection
