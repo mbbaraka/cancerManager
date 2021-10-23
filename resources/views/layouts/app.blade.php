@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Cancer Management System') }}</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}') }}" defer></script>
@@ -131,7 +131,7 @@
     <script src="{{ asset('cancerManager/lib/amazeui-datetimepicker/js/amazeui.datetimepicker.min.js') }}"></script>
     <script src="{{ asset('cancerManager/lib/jquery-simple-datetimepicker/jquery.simple-dtpicker.js') }}"></script>
     <script src="{{ asset('cancerManager/lib/pickerjs/picker.min.js') }}"></script>
-    <script src="{{ asset('cancerManager/js/jquery.cookie.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('cancerManager/js/cookie.js') }}" type="text/javascript"></script>
 
     <script src="{{ asset('cancerManager/js/azia.js') }}"></script>
 

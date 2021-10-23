@@ -2,6 +2,8 @@
 
 @section('content')
 
+@include('partials.nav')
+
   <div class="az-content az-content-dashboard">
     <div class="container">
       <div class="az-content-body">
@@ -52,7 +54,8 @@
                 </div><!-- card-header -->
               <div class="card-body p-3">
                 <h3>Patient Details</h3>
-                <form action="" method="post">
+                <form action="{{ route('add-particulars') }}" method="post">
+                    @csrf
                     <div class="row row-sm">
                         <div class="col-lg">
                           <label for="name">Patient Name</label>
@@ -64,9 +67,9 @@
                           @enderror
                         </div><!-- col -->
                         <div class="col-lg">
-                            <label for="name">Date of Birth</label>
-                            <input class="form-control" name="name @error('name') is-invalid @enderror" value="{{ old('name') }}" type="date">
-                            @error('name')
+                            <label for="dob">Date of Birth</label>
+                            <input class="form-control @error('dob') is-invalid @enderror" name="dob" value="{{ old('dob') }}" type="date">
+                            @error('dob')
                               <span class="invalid-feedback" role="alert">
                                   <strong>{{ $message }}</strong>
                               </span>
@@ -99,7 +102,7 @@
                         </div><!-- col -->
                         <div class="col-lg">
                             <label for="name">Village</label>
-                            <select class="form-control select2">
+                            <select class="form-control select2 @error('village') is-invalid @enderror">
                                 <option label="Choose one"></option>
                                 <option value="Firefox">Firefox</option>
                                 <option value="Chrome">Chrome</option>
@@ -107,17 +110,23 @@
                                 <option value="Opera">Opera</option>
                                 <option value="Internet Explorer">Internet Explorer</option>
                               </select>
-                            <input class="form-control" name="name @error('name') is-invalid @enderror" value="{{ old('name') }}" type="text">
-                            @error('name')
+                            @error('village')
                               <span class="invalid-feedback" role="alert">
                                   <strong>{{ $message }}</strong>
                               </span>
                             @enderror
                         </div><!-- col -->
                         <div class="col-lg">
-                            <label for="name">Subcounty</label>
-                            <input class="form-control" name="name @error('name') is-invalid @enderror" value="{{ old('name') }}" type="text">
-                            @error('name')
+                            <label for="subcounty">Subcounty</label>
+                            <select class="form-control select2 @error('subcounty') is-invalid @enderror">
+                                <option label="Choose one"></option>
+                                <option value="Firefox">Firefox</option>
+                                <option value="Chrome">Chrome</option>
+                                <option value="Safari">Safari</option>
+                                <option value="Opera">Opera</option>
+                                <option value="Internet Explorer">Internet Explorer</option>
+                              </select>
+                            @error('subcounty')
                               <span class="invalid-feedback" role="alert">
                                   <strong>{{ $message }}</strong>
                               </span>
@@ -128,31 +137,28 @@
                     <div class="row row-sm">
                         <div class="col-lg">
                           <label for="name">Next of Kin</label>
-                          <input class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" type="text">
-                          @error('name')
+                          <input class="form-control @error('next_of_kin') is-invalid @enderror" name="next_of_kin" value="{{ old('next_of_kin') }}" type="text">
+                          @error('next_of_kin')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
                           @enderror
                         </div><!-- col -->
                         <div class="col-lg">
-                            <label for="name">Next of Kin PHone Number</label>
-                            <input class="form-control" name="name @error('name') is-invalid @enderror" value="{{ old('name') }}" type="text">
-                            @error('name')
+                            <label for="next_of_kin_phone">Next of Kin Phone Number</label>
+                            <input class="form-control" name="name @error('next_of_kin_phone') is-invalid @enderror" value="{{ old('next_of_kin_phone') }}" type="text">
+                            @error('next_of_kin_phone')
                               <span class="invalid-feedback" role="alert">
                                   <strong>{{ $message }}</strong>
                               </span>
                             @enderror
                         </div><!-- col -->
-                        <div class="col-lg">
-                            <label for="name">Gender</label>
-                            <input class="form-control" name="name @error('name') is-invalid @enderror" value="{{ old('name') }}" type="text">
-                            @error('name')
-                              <span class="invalid-feedback" role="alert">
-                                  <strong>{{ $message }}</strong>
-                              </span>
-                            @enderror
-                        </div><!-- col -->
+                    </div><!-- row -->
+                    <br>
+                    <div class="row row-xs wd-xl-80p">
+                        <div class="col-sm-6 col-md-3"><button type="reset" class="btn btn-danger btn-with-icon btn-block"><i class="typcn typcn-delete"></i> Cancel</button></div>
+                        <div class="col-sm-6 col-md-3 mg-t-10 mg-sm-t-0"><button class="btn btn-primary btn-with-icon btn-block"><i class="far fa-save"></i> Save</button></div>
+                        <div class="col-sm-6 col-md-3 mg-t-10 mg-md-t-0"><button type="submit" class="btn btn-primary btn-with-icon btn-block"><i class="far fa-save"></i> Save and Continue</button></div>
                     </div><!-- row -->
                 </form>
               </div><!-- card-body -->
@@ -164,4 +170,5 @@
     </div>
   </div><!-- az-content -->
 
+  @include('partials.footer')
   @endsection

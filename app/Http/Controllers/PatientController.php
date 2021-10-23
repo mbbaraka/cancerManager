@@ -9,4 +9,8 @@ class PatientController extends Controller
     public function index (){
         return view('home.patients.particular');
     }
+
+    public function addParticulars () {
+        return redirect()->route('new-patient-diagnosis');
+    }
 }
