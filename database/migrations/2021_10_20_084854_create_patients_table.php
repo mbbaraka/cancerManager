@@ -14,10 +14,10 @@ class CreatePatientsTable extends Migration
     public function up()
     {
         Schema::create('patients', function (Blueprint $table) {
-            $table->string('Pat_id');
+            $table->string('pat_id');
             $table->string('name');
             $table->string('date_of_birth')->nullable();
-            $table->enum('gender', ['M', 'F']);
+            $table->enum('gender', ['m', 'f']);
             $table->string('village')->nullable();
             $table->string('sub_county')->nullable();
             $table->string('phone')->nullable();

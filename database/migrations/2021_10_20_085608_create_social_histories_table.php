@@ -17,10 +17,10 @@ class CreateSocialHistoriesTable extends Migration
             $table->id();
             $table->unsignedInteger('patient_id')->references('id')->on('patients')->onDelete('cascade');
             $table->string('marital_status');
-            $table->string('tobaco_use');
+            $table->enum('tobaco_use', ['no', 'yes']);
             $table->string('duration_of_use');
             $table->string('packs_per_day');
-            $table->string('alcohol_use');
+            $table->enum('alcohol_use', ['no', 'yes']);
             $table->string('bottles_per_day');
             $table->timestamps();
         });

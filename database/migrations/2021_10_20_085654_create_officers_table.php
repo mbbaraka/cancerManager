@@ -14,11 +14,11 @@ class CreateOfficersTable extends Migration
     public function up()
     {
         Schema::create('officers', function (Blueprint $table) {
-            $table->string('Staff_ID')->unique();
+            $table->string('staff_id')->unique();
             $table->string('first_name');
             $table->string('last_name');
             $table->string('phone_number')->unique();
-            $table->string('title');
+            $table->enum('title', ['doctor', 'nurse']);
             $table->string('facility');
             $table->timestamps();
         });

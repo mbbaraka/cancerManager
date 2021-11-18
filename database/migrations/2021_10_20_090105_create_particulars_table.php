@@ -17,7 +17,6 @@ class CreateParticularsTable extends Migration
             $table->id();
             $table->unsignedInteger('patient_id')->references('id')->on('patients')->onDelete('cascade');
             $table->unsignedInteger('officer_id')->references('id')->on('officers')->onDelete('cascade');
-            $table->unsignedInteger('facility_id')->references('id')->on('facilities')->onDelete('cascade');
             $table->string('refered_by')->nullable();
             $table->enum('status', ['Positive', 'Suspect'])->default('Suspect');
             $table->string('stage')->nullable();

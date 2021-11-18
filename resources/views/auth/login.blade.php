@@ -74,7 +74,7 @@
     <div class="az-card-signin pt-5">
       {{-- <h1 class="az-logo text-center">CMS</h1> --}}
       <div class="az-signin-header">
-        <h2 class="text-center">Welcome back!</h2>
+        <h2 class="text-center"><img src="{{ asset('cmsystem.png') }}" alt=""></h2>
         <h4>Please sign in to continue</h4>
 
         <form method="POST" action="{{ route('login') }}">
@@ -99,11 +99,8 @@
           </div><!-- form-group -->
           <button class="btn btn-az-primary btn-block" type="submit">Sign In</button>
         </form>
+        <p class="az-signin-footer pt-3"><a href="{{ route('password.request') }}">Forgot password?</a></p>
       </div><!-- az-signin-header -->
-      <div class="az-signin-footer">
-        <p><a href="{{ route('password.request') }}">Forgot password?</a></p>
-        {{-- <p>Don't have an account? <a href="page-signup.html">Create an Account</a></p> --}}
-      </div><!-- az-signin-footer -->
     </div><!-- az-card-signin -->
 </div><!-- az-signin-wrapper -->
 @endsection

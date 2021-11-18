@@ -17,7 +17,7 @@ class CreateFamilyHistoriesTable extends Migration
             $table->id();
             $table->unsignedInteger('patient_id')->references('id')->on('patients')->onDelete('cascade');
             $table->string('relative');
-            $table->string('type');
+            $table->enum('type', ['father', 'mother', 'sister', 'brother', 'son', 'daughter', 'grand', 'uncle', 'auntie']);
             $table->timestamps();
         });
     }
