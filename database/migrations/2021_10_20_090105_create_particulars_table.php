@@ -15,8 +15,8 @@ class CreateParticularsTable extends Migration
     {
         Schema::create('diagnosis', function (Blueprint $table) {
             $table->id();
-            $table->unsignedInteger('patient_id')->references('id')->on('patients')->onDelete('cascade');
-            $table->unsignedInteger('officer_id')->references('id')->on('officers')->onDelete('cascade');
+            $table->string('patient_id')->references('id')->on('patients')->onDelete('cascade');
+            $table->string('officer_id')->references('id')->on('officers')->onDelete('cascade');
             $table->string('refered_by')->nullable();
             $table->enum('status', ['Positive', 'Suspect'])->default('Suspect');
             $table->string('stage')->nullable();

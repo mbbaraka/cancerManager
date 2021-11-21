@@ -54,11 +54,11 @@
                 </div><!-- card-header -->
               <div class="card-body p-3">
                 <h3>Patient Details</h3>
-                <form action="{{ route('diagnosis-add') }}" method="post">
+                <form action="{{ route('diagnosis-add', $id) }}" method="post">
                     @csrf
                     <div class="row row-sm">
                         <div class="col-lg">
-                          <label for="name">Patient Referred By</label>
+                          <label for="name">Patient Referred By <small>(Leave empty if patient not referred)</small></label>
                           <input class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" type="text">
                           @error('name')
                             <span class="invalid-feedback" role="alert">
@@ -116,9 +116,9 @@
                         <div class="col-lg">
                           <label for="name">Description</label>
                           <textarea class="form-control @error('description') is-invalid @enderror" name="description">
-
+                            {{ old('description') }}
                           </textarea>
-                          @error('name')
+                          @error('description')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>

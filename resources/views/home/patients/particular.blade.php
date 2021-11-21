@@ -76,11 +76,11 @@
                             @enderror
                         </div><!-- col -->
                         <div class="col-lg">
-                            <label for="name">Gender</label>
-                            <select class="form-control select2-no-search @error('gender') is-invalid @enderror" name="name">
+                            <label for="gender">Gender</label>
+                            <select class="form-control select2-no-search @error('gender') is-invalid @enderror" name="gender">
                                 <option label="Choose Gender"></option>
-                                <option value="Male">Male</option>
-                                <option value="Female">Female</option>
+                                <option value="M">Male</option>
+                                <option value="F">Female</option>
                               </select>
                             @error('gender')
                               <span class="invalid-feedback" role="alert">
@@ -92,17 +92,17 @@
                     <br>
                     <div class="row row-sm">
                         <div class="col-lg">
-                          <label for="name">Phone Number</label>
-                          <input class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" type="text">
-                          @error('name')
+                          <label for="phone">Phone Number</label>
+                          <input class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{ old('phone') }}" type="text">
+                          @error('phone')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
                           @enderror
                         </div><!-- col -->
                         <div class="col-lg">
-                            <label for="name">Village</label>
-                            <select class="form-control select2 @error('village') is-invalid @enderror">
+                            <label for="village">Village</label>
+                            <select name="village" class="form-control select2 @error('village') is-invalid @enderror">
                                 <option label="Choose one"></option>
                                 <option value="Firefox">Firefox</option>
                                 <option value="Chrome">Chrome</option>
@@ -118,7 +118,7 @@
                         </div><!-- col -->
                         <div class="col-lg">
                             <label for="subcounty">Subcounty</label>
-                            <select class="form-control select2 @error('subcounty') is-invalid @enderror">
+                            <select name="subcounty" class="form-control select2 @error('subcounty') is-invalid @enderror">
                                 <option label="Choose one"></option>
                                 <option value="Firefox">Firefox</option>
                                 <option value="Chrome">Chrome</option>
@@ -136,7 +136,7 @@
                     <br>
                     <div class="row row-sm">
                         <div class="col-lg">
-                          <label for="name">Next of Kin</label>
+                          <label for="next_of_kin">Next of Kin</label>
                           <input class="form-control @error('next_of_kin') is-invalid @enderror" name="next_of_kin" value="{{ old('next_of_kin') }}" type="text">
                           @error('next_of_kin')
                             <span class="invalid-feedback" role="alert">
@@ -146,7 +146,7 @@
                         </div><!-- col -->
                         <div class="col-lg">
                             <label for="next_of_kin_phone">Next of Kin Phone Number</label>
-                            <input class="form-control" name="name @error('next_of_kin_phone') is-invalid @enderror" value="{{ old('next_of_kin_phone') }}" type="text">
+                            <input class="form-control @error('next_of_kin_phone') is-invalid @enderror" name="next_of_kin_phone" value="{{ old('next_of_kin_phone') }}" type="text">
                             @error('next_of_kin_phone')
                               <span class="invalid-feedback" role="alert">
                                   <strong>{{ $message }}</strong>

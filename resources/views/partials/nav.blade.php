@@ -21,7 +21,7 @@
             </nav>
           </li>
           <li class="nav-item">
-            <a href="" class="nav-link"><i class="typcn typcn-chart-bar-outline"></i> Incharge Portal</a>
+            <a href="{{ route('referred-patients') }}" class="nav-link"><i class="typcn typcn-chart-bar-outline"></i> Referred Patients</a>
           </li>
          {{-- <li class="nav-item">
             <a href="form-elements.html" class="nav-link"><i class="typcn typcn-chart-bar-outline"></i> Forms</a>

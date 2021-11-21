@@ -15,7 +15,7 @@ class CreateSocialHistoriesTable extends Migration
     {
         Schema::create('social_histories', function (Blueprint $table) {
             $table->id();
-            $table->unsignedInteger('patient_id')->references('id')->on('patients')->onDelete('cascade');
+            $table->string('patient_id')->references('id')->on('patients')->onDelete('cascade');
             $table->string('marital_status');
             $table->enum('tobaco_use', ['no', 'yes']);
             $table->string('duration_of_use');
