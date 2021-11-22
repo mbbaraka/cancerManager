@@ -104,10 +104,14 @@
                             <label for="village">Village</label>
                             <select name="village" class="form-control select2 @error('village') is-invalid @enderror">
                                 <option label="Choose one"></option>
-                                <option value="Firefox">Firefox</option>
-                                <option value="Chrome">Chrome</option>
-                                <option value="Safari">Safari</option>
-                                <option value="Opera">Opera</option>
+                                <option value="Ediofe">Ediofe</option>
+                                <option value="Enyau">Enyau</option>
+                                <option value="Ewanyapa">Ewanyapa</option>
+                                <option value="Muni">Muni</option>
+                                <option value="Euata">Euata</option>
+                                <option value="Awindiri">Awindiri</option>
+                                <option value="Oli">Oli</option>
+                                <option value="Odramacaku">Odramacaku</option>
                                 <option value="Internet Explorer">Internet Explorer</option>
                               </select>
                             @error('village')
@@ -120,11 +124,10 @@
                             <label for="subcounty">Subcounty</label>
                             <select name="subcounty" class="form-control select2 @error('subcounty') is-invalid @enderror">
                                 <option label="Choose one"></option>
-                                <option value="Firefox">Firefox</option>
-                                <option value="Chrome">Chrome</option>
-                                <option value="Safari">Safari</option>
-                                <option value="Opera">Opera</option>
-                                <option value="Internet Explorer">Internet Explorer</option>
+                                <option value="Logiri">Logiri</option>
+                                <option value="Oluko">Oluko</option>
+                                <option value="Pajulu">Pajulu</option>
+                                <option value="Adumi">Adumi</option>
                               </select>
                             @error('subcounty')
                               <span class="invalid-feedback" role="alert">

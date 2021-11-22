@@ -85,6 +85,21 @@
 
                     <div class="row row-sm pt-3">
                         <div class="col-lg">
+                            <label for="type">Cancer Type</label>
+                            <select class="form-control select2-no-search @error('type') is-invalid @enderror" name="type">
+                              <option label="Choose Cancer Stage"></option>
+                              <option value="Lung Cancer">Lung Cancer</option>
+                              <option value="Breast Cancer">Breast Cancer</option>
+                              <option value="Cervial Cancer">Cervial Cancer</option>
+                              <option value="Skin Cancer">Skin Cancer</option>
+                            </select>
+                            @error('type')
+                              <span class="invalid-feedback" role="alert">
+                                  <strong>{{ $message }}</strong>
+                              </span>
+                            @enderror
+                          </div><!-- col -->
+                        <div class="col-lg">
                           <label for="stage">Cancer Stage</label>
                           <select class="form-control select2-no-search @error('stage') is-invalid @enderror" name="stage">
                             <option label="Choose Cancer Stage"></option>

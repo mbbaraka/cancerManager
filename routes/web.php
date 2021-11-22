@@ -29,7 +29,7 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/', 'App\Http\Controllers\HomeController@index')->name('home');
 
-    Route::get('/new-patient', 'App\Http\Controllers\PatientController@index')->name('new-patient');
+    Route::get('/new-patient', 'App\Http\Controllers\PatientController@particulars')->name('new-patient');
 
     Route::post('/new-patient/add', 'App\Http\Controllers\PatientController@addParticulars')->name('add-particulars');
 
@@ -60,5 +60,7 @@ Route::middleware(['auth'])->group(function () {
     /** Referred patient routes */
     Route::get('/referred-patients', 'App\Http\Controllers\ReferredController@index')->name('referred-patients');
 
+
+    Route::get('/patients', 'App\Http\Controllers\PatientController@index')->name('patient-index');
 
 });

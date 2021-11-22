@@ -9,6 +9,11 @@ use App\Models\Patient;
 class PatientController extends Controller
 {
     public function index (){
+        $patients = Patient::latest()->paginate(10);
+        return view('home.patients.all', compact('patients'));
+    }
+
+    public function particulars(){
         return view('home.patients.particular');
     }
 

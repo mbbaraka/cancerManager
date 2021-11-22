@@ -26,7 +26,9 @@ class DiagnosisController extends Controller
         $diagnosis->officer_id = $officer_id;
         $diagnosis->refered_by = $request->name;
         $diagnosis->status = $request->status;
+        $diagnosis->type = $request->type;
         $diagnosis->stage = $request->stage;
+        $diagnosis->treatment = $request->treatment;
         $diagnosis->description = $request->description;
 
         if ($request->attachments != "") {

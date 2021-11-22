@@ -98,7 +98,7 @@
 
                     <br>
                     <div class="row row-xs wd-xl-80p">
-                        <div class="col-sm-6 col-md-3"><button type="reset" class="btn btn-danger btn-with-icon btn-block"><i class="typcn typcn-delete"></i> Cancel</button></div>
+                        <div class="col-sm-6 col-md-3"><a class="btn btn-danger btn-with-icon btn-block" href=""><i class="typcn typcn-delete"></i> Skip and Continue</a></div>
                         <div class="col-sm-6 col-md-3 mg-t-10 mg-sm-t-0"><a class="btn btn-primary btn-with-icon btn-block"><i class="far fa-save"></i> Return Back</a></div>
                         <div class="col-sm-6 col-md-3 mg-t-10 mg-md-t-0"><button class="btn btn-primary btn-with-icon btn-block"><i class="far fa-save"></i> Save and Continue</button></div>
                     </div><!-- row -->

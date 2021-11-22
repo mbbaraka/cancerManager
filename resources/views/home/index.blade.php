@@ -37,14 +37,11 @@
         <div class="az-dashboard-nav">
           <nav class="nav">
             <a class="nav-link active" data-toggle="tab" href="#">Overview</a>
-            <a class="nav-link" data-toggle="tab" href="#">Demographics</a>
-            <a class="nav-link" data-toggle="tab" href="#">More</a>
           </nav>
 
           <nav class="nav">
             <a class="nav-link" href="#"><i class="far fa-save"></i> Save Report</a>
             <a class="nav-link" href="#"><i class="far fa-file-pdf"></i> Export to PDF</a>
-            <a class="nav-link" href="#"><i class="far fa-envelope"></i>Send to Email</a>
             <a class="nav-link" href="#"><i class="fas fa-ellipsis-h"></i></a>
           </nav>
         </div>
@@ -54,7 +51,7 @@
             <div class="card card-dashboard-one">
               <div class="card-header">
                 <div>
-                  <h6 class="card-title">Cancer Reports at Aroi Health Centre III</h6>
+                  <h6 class="card-title">Cancer Reports at Arua Regional Referral Hospital</h6>
                   <p class="card-text">Audience to which the users belonged while on the current date range.</p>
                 </div>
                 <div class="btn-group">
@@ -105,90 +102,59 @@
             </div><!-- card -->
           </div><!-- col -->
           <div class="col-lg-5 mg-t-20 mg-lg-t-0">
-            <div class="row row-sm">
-              <div class="col-sm-6">
-                <div class="card card-dashboard-two">
-                  <div class="card-header pb-3">
-                    <h6>33.50% <i class="icon ion-md-trending-up tx-success"></i> <small>18.02%</small></h6>
-                    <p>Bounce Rate</p>
-                  </div><!-- card-header -->
-                </div><!-- card -->
-              </div><!-- col -->
-              <div class="col-sm-6 mg-t-20 mg-sm-t-0">
-                <div class="card card-dashboard-two">
-                  <div class="card-header pb-3">
-                    <h6>86k <i class="icon ion-md-trending-down tx-danger"></i> <small>0.86%</small></h6>
-                    <p>Total Users</p>
-                  </div><!-- card-header -->
-                </div><!-- card -->
-              </div><!-- col -->
-            </div><!-- row -->
+            <div class="card card-dashboard-pageviews">
+                <div class="card-header">
+                  <h6 class="card-title">Cancer Reports by Type</h6>
+                  <p class="card-text">This report is based on the patients recorded in the system</p>
+                </div><!-- card-header -->
+                <div class="card-body">
+                  <div class="az-list-item">
+                    <div>
+                      <h6>Lung Cancer</h6>
+                      <span>Percentage</span>
+                    </div>
+                    <div>
+                      <h6 class="tx-primary">{{ number_format($lung_cancer) }}</h6>
+                      <span>{{ ($lung_cancer/$cancer)*100 }}%</span>
+                    </div>
+                  </div><!-- list-group-item -->
+                  <div class="az-list-item">
+                    <div>
+                      <h6>Breast Cancer</h6>
+                      <span>Percentage</span>
+                    </div>
+                    <div>
+                      <h6 class="tx-primary">{{ number_format($breast_cancer) }}</h6>
+                      <span>{{ ($breast_cancer/$cancer)*100 }}%</span>
+                    </div>
+                  </div><!-- list-group-item -->
+                  <div class="az-list-item">
+                    <div>
+                      <h6>Skin Cancer</h6>
+                      <span>Percentage</span>
+                    </div>
+                    <div>
+                      <h6 class="tx-primary">{{ number_format($skin_cancer) }}</h6>
+                      <span>{{ ($skin_cancer/$cancer)*100 }}%</span>
+                    </div>
+                  </div><!-- list-group-item -->
+                  <div class="az-list-item">
+                    <div>
+                      <h6>Cervical Cancer</h6>
+                      <span>Percentage</span>
+                    </div>
+                    <div>
+                      <h6 class="tx-primary">{{ number_format($cervical_cancer) }}</h6>
+                      <span>{{ ($cervical_cancer/$cancer)*100 }}%</span>
+                    </div>
+                  </div><!-- list-group-item -->
+                </div><!-- card-body -->
+              </div><!-- card -->
           </div><!--col -->
         </div><!-- row -->
 
         <div class="row row-sm mg-b-20">
-          <div class="col-lg-4">
-            <div class="card card-dashboard-pageviews">
-              <div class="card-header">
-                <h6 class="card-title">Cancer Reports by Type</h6>
-                <p class="card-text">This report is based on 100% of sessions.</p>
-              </div><!-- card-header -->
-              <div class="card-body">
-                <div class="az-list-item">
-                  <div>
-                    <h6>Lung Cancer</h6>
-                    <span>/demo/admin/index.html</span>
-                  </div>
-                  <div>
-                    <h6 class="tx-primary">7,755</h6>
-                    <span>31.74% (-100.00%)</span>
-                  </div>
-                </div><!-- list-group-item -->
-                <div class="az-list-item">
-                  <div>
-                    <h6>Breast Cancer</h6>
-                    <span>/demo/admin/forms.html</span>
-                  </div>
-                  <div>
-                    <h6 class="tx-primary">5,215</h6>
-                    <span>28.53% (-100.00%)</span>
-                  </div>
-                </div><!-- list-group-item -->
-                <div class="az-list-item">
-                  <div>
-                    <h6>Skin Cancer</h6>
-                    <span>/demo/admin/util.html</span>
-                  </div>
-                  <div>
-                    <h6 class="tx-primary">4,848</h6>
-                    <span>25.35% (-100.00%)</span>
-                  </div>
-                </div><!-- list-group-item -->
-                <div class="az-list-item">
-                  <div>
-                    <h6>Cervical Cancer</h6>
-                    <span>/demo/admin/validation.html</span>
-                  </div>
-                  <div>
-                    <h6 class="tx-primary">3,275</h6>
-                    <span>23.17% (-100.00%)</span>
-                  </div>
-                </div><!-- list-group-item -->
-                <div class="az-list-item">
-                  <div>
-                    <h6>Prostate Cancer</h6>
-                    <span>/demo/admin/modals.html</span>
-                  </div>
-                  <div>
-                    <h6 class="tx-primary">3,003</h6>
-                    <span>22.21% (-100.00%)</span>
-                  </div>
-                </div><!-- list-group-item -->
-              </div><!-- card-body -->
-            </div><!-- card -->
-
-          </div><!-- col -->
-          <div class="col-lg-8 mg-t-20 mg-lg-t-0">
+          <div class="col-lg-6 mg-t-20 mg-lg-t-0">
             <div class="card card-dashboard-four">
               <div class="card-header">
                 <h6 class="card-title text-center">Effects By Gender</h6>
@@ -198,7 +164,7 @@
                     <h6 class="text-center">Male</h6>
                     <div class="az-traffic-detail-item">
                       <div>
-                        <span>Lukeamia</span>
+                        <span>Lung Cancer</span>
                         <span>1,320 <span>(25%)</span></span>
                       </div>
                       <div class="progress">
@@ -207,7 +173,7 @@
                     </div>
                     <div class="az-traffic-detail-item">
                       <div>
-                        <span>Lung Cancer</span>
+                        <span>Breast Cancer</span>
                         <span>987 <span>(20%)</span></span>
                       </div>
                       <div class="progress">
@@ -216,7 +182,7 @@
                     </div>
                     <div class="az-traffic-detail-item">
                       <div>
-                        <span>Breast Cancer</span>
+                        <span>Skin Cancer</span>
                         <span>2,010 <span>(30%)</span></span>
                       </div>
                       <div class="progress">
@@ -225,28 +191,19 @@
                     </div>
                     <div class="az-traffic-detail-item">
                       <div>
-                        <span>Prostate Cancer</span>
+                        <span>Cervical Cancer</span>
                         <span>654 <span>(15%)</span></span>
                       </div>
                       <div class="progress">
                         <div class="progress-bar bg-teal wd-15p" role="progressbar" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div>
                       </div><!-- progress -->
                     </div>
-                    <div class="az-traffic-detail-item">
-                      <div>
-                        <span>Other</span>
-                        <span>400 <span>(10%)</span></span>
-                      </div>
-                      <div class="progress">
-                        <div class="progress-bar bg-gray-500 wd-10p" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
-                      </div><!-- progress -->
-                    </div>
                   </div><!-- col -->
                 <div class="col-md-6 col-lg-5 mg-lg-l-auto mg-t-20 mg-md-t-0">
                     <h6 class="text-center">Female</h6>
-                     <div class="az-traffic-detail-item">
+                    <div class="az-traffic-detail-item">
                         <div>
-                          <span>Lukeamia</span>
+                          <span>Lung Cancer</span>
                           <span>1,320 <span>(25%)</span></span>
                         </div>
                         <div class="progress">
@@ -255,7 +212,7 @@
                       </div>
                       <div class="az-traffic-detail-item">
                         <div>
-                          <span>Lung Cancer</span>
+                          <span>Breast Cancer</span>
                           <span>987 <span>(20%)</span></span>
                         </div>
                         <div class="progress">
@@ -264,7 +221,7 @@
                       </div>
                       <div class="az-traffic-detail-item">
                         <div>
-                          <span>Breast Cancer</span>
+                          <span>Skin Cancer</span>
                           <span>2,010 <span>(30%)</span></span>
                         </div>
                         <div class="progress">
@@ -273,40 +230,26 @@
                       </div>
                       <div class="az-traffic-detail-item">
                         <div>
-                          <span>Prostate Cancer</span>
+                          <span>Cervical Cancer</span>
                           <span>654 <span>(15%)</span></span>
                         </div>
                         <div class="progress">
                           <div class="progress-bar bg-teal wd-15p" role="progressbar" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div>
                         </div><!-- progress -->
                       </div>
-                      <div class="az-traffic-detail-item">
-                        <div>
-                          <span>Other</span>
-                          <span>400 <span>(10%)</span></span>
-                        </div>
-                        <div class="progress">
-                          <div class="progress-bar bg-gray-500 wd-10p" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div><!-- progress -->
-                      </div>
                 </div><!-- col -->
               </div><!-- card-body -->
             </div><!-- card-dashboard-four -->
           </div><!-- col -->
-        </div><!-- row -->
-
-        <div class="row row-sm mg-b-20 mg-lg-b-0">
-          <div class="col-lg-12 col-xl-12 mg-t-20 mg-lg-t-0">
+          <div class="col-lg-6 mg-t-20 mg-lg-t-0">
             <div class="card card-table-one">
               <h6 class="card-title">Report by Location</h6>
-              <p class="az-content-text mg-b-20">Part of this date range occurs before the new users metric had been calculated, so the old users metric is displayed.</p>
+              <p class="az-content-text mg-b-20">This indicates the report basing on the sub countries recorded in the system</p>
               <div class="table-responsive">
                 <table class="table">
                   <thead>
                     <tr>
                       <th class="wd-5p">&nbsp;</th>
-                      <th class="wd-45p">Village</th>
-                      <th>Parish</th>
                       <th>Subcounty</th>
                       <th>Percentage</th>
                     </tr>
@@ -314,46 +257,31 @@
                   <tbody>
                     <tr>
                       <td>#</td>
-                      <td><strong>Ombeteni</strong></td>
                       <td>Pajulu</td>
-                      <td>Pajulu</td>
-                      <td>15.47%</td>
+                      <td>{{ ($location_pajulu/$location)*100 }}%</td>
                     </tr>
                     <tr>
                         <td>#</td>
-                        <td><strong>Ombeteni</strong></td>
-                        <td>Pajulu</td>
-                        <td>Pajulu</td>
-                        <td>15.47%</td>
+                        <td>Oluko</td>
+                        <td>{{ ($location_oluko/$location)*100 }}%</td>
                       </tr>
                       <tr>
                         <td>#</td>
-                        <td><strong>Ombeteni</strong></td>
-                        <td>Pajulu</td>
-                        <td>Pajulu</td>
-                        <td>15.47%</td>
+                        <td>Adumi</td>
+                        <td>{{ ($location_adumi/$location)*100 }}%</td>
                       </tr>
                       <tr>
                         <td>#</td>
-                        <td><strong>Ombeteni</strong></td>
-                        <td>Pajulu</td>
-                        <td>Pajulu</td>
-                        <td>15.47%</td>
-                      </tr>
-                      <tr>
-                        <td>#</td>
-                        <td><strong>Ombeteni</strong></td>
-                        <td>Pajulu</td>
-                        <td>Pajulu</td>
-                        <td>15.47%</td>
+                        <td>Logiri</td>
+                        <td>{{ ($location_logiri/$location)*100 }}%</td>
                       </tr>
                   </tbody>
                 </table>
               </div><!-- table-responsive -->
             </div><!-- card -->
           </div><!-- col-lg -->
-
         </div><!-- row -->
+
       </div><!-- az-content-body -->
     </div>
   </div><!-- az-content -->
