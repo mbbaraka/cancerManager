@@ -10,14 +10,14 @@
           <a href="" class="close">&times;</a>
         </div><!-- az-header-menu-header -->
         <ul class="nav">
-          <li class="nav-item">
-            <a href="{{ url('/') }}" class="nav-link"><i class="typcn typcn-chart-area-outline"></i> Dashboard</a>
+          <li class="nav-item active show">
+            <a href="index.html" class="nav-link"><i class="typcn typcn-chart-area-outline"></i> Dashboard</a>
           </li>
           <li class="nav-item">
             <a href="" class="nav-link with-sub"><i class="typcn typcn-document"></i> Patients</a>
             <nav class="az-menu-sub">
               <a href="{{ route('new-patient') }}" class="nav-link">Add New</a>
-              <a href="{{ route('patient-index') }}" class="nav-link">View All</a>
+              <a href="{{ route('referred-patients') }}" class="nav-link">View All</a>
             </nav>
           </li>
           <li class="nav-item">
@@ -46,7 +46,7 @@
                 </div><!-- media-body -->
               </div><!-- media -->
               <div class="media">
-                <div class="az-img-user"><img src="../img/faces/face5.jpg" alt=""></div>
+                <div class="az-img-user"><img src="{{ asset('cancerManager/img/faces/face5.jpg') }}" alt=""></div>
                 <div class="media-body">
                   <p><strong>Adrian Monino</strong> submitted a new case</p>
                   <span>Mar 12 10:40pm</span>
@@ -57,7 +57,7 @@
           </div><!-- dropdown-menu -->
         </div><!-- az-header-notification -->
         <div class="dropdown az-profile-menu">
-          <a href="" class="az-img-user"><img src="../img/faces/face1.jpg" alt=""></a>
+          <a href="" class="az-img-user"><img src="{{ asset('cancerManager/img/faces/face1.jpg') }}" alt=""></a>
           <div class="dropdown-menu">
             <div class="az-dropdown-header d-sm-none">
               <a href="" class="az-header-arrow"><i class="icon ion-md-arrow-back"></i></a>
