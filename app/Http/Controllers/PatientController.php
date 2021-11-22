@@ -33,7 +33,7 @@ class PatientController extends Controller
 
         $patient_id = 'ID-'.random_int(10000, 99999);
 
-        $particulars->pat_id = $patient_id;
+        $particulars->patient_id = $patient_id;
         $particulars->name = $request->name;
         $particulars->date_of_birth = $request->dob;
         $particulars->gender = $request->gender;

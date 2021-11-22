@@ -14,7 +14,7 @@ class CreatePatientsTable extends Migration
     public function up()
     {
         Schema::create('patients', function (Blueprint $table) {
-            $table->string('pat_id')->unique();
+            $table->string('patient_id')->unique();
             $table->string('name');
             $table->string('date_of_birth')->nullable();
             $table->enum('gender', ['m', 'f']);
