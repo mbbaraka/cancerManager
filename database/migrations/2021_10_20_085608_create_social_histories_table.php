@@ -16,12 +16,12 @@ class CreateSocialHistoriesTable extends Migration
         Schema::create('social_histories', function (Blueprint $table) {
             $table->id();
             $table->string('patient_id')->references('id')->on('patients')->onDelete('cascade');
-            $table->string('marital_status');
-            $table->enum('tobaco_use', ['no', 'yes']);
-            $table->string('duration_of_use');
-            $table->string('packs_per_day');
-            $table->enum('alcohol_use', ['no', 'yes']);
-            $table->string('bottles_per_day');
+            $table->string('marital_status')->nullable();
+            $table->string('tobaco_use')->nullable();
+            $table->string('duration_of_use')->nullable();
+            $table->string('packs_per_day')->nullable();
+            $table->string('alcohol_use')->nullable();
+            $table->string('bottles_per_day')->nullable();
             $table->timestamps();
         });
     }

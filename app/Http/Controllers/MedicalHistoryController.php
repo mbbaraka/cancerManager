@@ -25,18 +25,47 @@ class MedicalHistoryController extends Controller
         // }
 
 
-        foreach ((array)$request->disease as $value) {
 
-            $disease = new MedicalHistory();
-            $disease->patient_id = $id;
-            $disease->disease = $value;
+        // foreach ((array)$request->disease as $value) {
 
-            $save = $disease->save();
+        //     $disease = new MedicalHistory();
+        //     $disease->patient_id = $id;
+        //     $disease->disease = $value;
+
+        // }
+        // $save = $disease->save();
+
+        // if ($save) {
+        //     toast('Successfully added medical history, continue to fill surgical history', 'success');
+        //     return redirect()->route('new-patient-surgical-history', $id);
+        // }
+        $diseases = $request->input('disease');
+        $disArray = array();
+
+        foreach ($diseases as $disease) {
+            $disArray = $disease;
+            $value = new MedicalHistory();
+            $value->patient_id = $id;
+            $value->disease = $disease;
+
+            $save = $value->save();
 
             if ($save) {
                 toast('Successfully added medical history, continue to fill surgical history', 'success');
                 return redirect()->route('new-patient-surgical-history', $id);
             }
         }
+
+            // $value = new MedicalHistory();
+            // $value->patient_id = $id;
+            // $value->disease = $disease;
+
+            // $save = $value->save();
+
+            // if ($save) {
+            //     toast('Successfully added medical history, continue to fill surgical history', 'success');
+            //     return redirect()->route('new-patient-surgical-history', $id);
+            // }
+
     }
 }

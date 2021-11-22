@@ -16,8 +16,8 @@ class CreateSurgicalHistoriesTable extends Migration
         Schema::create('surgical_histories', function (Blueprint $table) {
             $table->id();
             $table->string('patient_id')->references('id')->on('patients')->onDelete('cascade');
-            $table->string('year');
-            $table->string('type');
+            $table->string('year')->nullable();
+            $table->string('type')->nullable();
             $table->timestamps();
         });
     }

@@ -45,16 +45,16 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/new-patient/medical-history/add/{id}', 'App\Http\Controllers\MedicalHistoryController@addMedicalHistory')->name('medical-history-add');
 
 
-    Route::get('/new-patient/surgical-history', 'App\Http\Controllers\SurgicalHistoryController@index')->name('new-patient-surgical-history');
+    Route::get('/new-patient/surgical-history/{id}', 'App\Http\Controllers\SurgicalHistoryController@index')->name('new-patient-surgical-history');
 
-    Route::post('/new-patient/surgical-history/add', 'App\Http\Controllers\SurgicalHistoryController@addSurgicalHistory')->name('surgical-history-add');
+    Route::post('/new-patient/surgical-history/add/{id}', 'App\Http\Controllers\SurgicalHistoryController@addSurgicalHistory')->name('surgical-history-add');
 
 
-    Route::get('/new-patient/social-history', 'App\Http\Controllers\SocialHistoryController@index')->name('new-patient-social-history');
+    Route::get('/new-patient/social-history/{id}', 'App\Http\Controllers\SocialHistoryController@index')->name('new-patient-social-history');
 
-    Route::post('/new-patient/social-history/add', 'App\Http\Controllers\SocialHistoryController@addSocialHistory')->name('social-history-add');
+    Route::post('/new-patient/social-history/add/{id}', 'App\Http\Controllers\SocialHistoryController@addSocialHistory')->name('social-history-add');
 
-    Route::get('/new-patient/finish', 'App\Http\Controllers\SocialHistoryController@finish')->name('new-patient-finish');
+    Route::get('/new-patient/finish/{id}', 'App\Http\Controllers\SocialHistoryController@finish')->name('new-patient-finish');
 
 
     /** Referred patient routes */

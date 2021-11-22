@@ -54,7 +54,7 @@
                 </div><!-- card-header -->
               <div class="card-body p-3">
                 <h3>Patient Details</h3>
-                <form action="{{ route('surgical-history-add') }}" method="post">
+                <form action="{{ route('surgical-history-add', $id) }}" method="post">
                     @csrf
 
                     <div class="row row-sm p-3">

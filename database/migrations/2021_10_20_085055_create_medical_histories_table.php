@@ -16,7 +16,7 @@ class CreateMedicalHistoriesTable extends Migration
         Schema::create('medical_histories', function (Blueprint $table) {
             $table->id();
             $table->string('patient_id')->references('id')->on('patients')->onDelete('cascade');
-            $table->string('disease');
+            $table->string('disease')->nullable();
             $table->timestamps();
         });
     }
