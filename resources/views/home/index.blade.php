@@ -358,5 +358,4 @@
     </div>
   </div><!-- az-content -->
 @include('partials.footer')
-
 @endsection

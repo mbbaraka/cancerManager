@@ -15,7 +15,8 @@ class DiagnosisController extends Controller
 
     public function addDiagnosis (Request $request, $patient_id) {
         $this->validate($request, [
-            'status' => 'required'
+            'status' => 'required',
+            'file' => 'csv,txt,xlx,xls,pdf|max:2048'
         ]);
 
         $officer_id = Auth::user()->id;
@@ -27,14 +28,26 @@ class DiagnosisController extends Controller
         $diagnosis->status = $request->status;
         $diagnosis->stage = $request->stage;
         $diagnosis->description = $request->description;
-        $diagnosis->attachments = $request->attachments;
+
+        if ($request->attachments != "") {
+            # code...
+            $name = $request->file('attachments')->getClientOriginalName();
+
+            $path = $request->file('attachments')->store('public/attachments');
+
+            $diagnosis->attachments = $name;
+        }else{
+            $diagnosis->attachments = "";
+        }
 
         $save = $diagnosis->save();
 
         if ($save) {
-            # code...
+
             toast('Patient diagnosis saved successfully', 'success');
-            return redirect()->route('new-patient-medical-history');
+
+            return redirect()->route('new-patient-medical-history', $patient_id);
+
         }
 
     }

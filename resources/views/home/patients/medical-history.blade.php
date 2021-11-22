@@ -54,43 +54,43 @@
                 </div><!-- card-header -->
               <div class="card-body p-3">
                 <h3>Patient Details</h3>
-                <form action="{{ route('medical-history-add') }}" method="post">
+                <form action="{{ route('medical-history-add', $id) }}" method="post" enctype="multipart/form-data">
                     @csrf
 
                     <div class="row row-sm p-3">
                         <div class="col-lg">
                             <label class="ckbox m-2">
-                                <input type="checkbox" value="Diabetis Type I"><span>Diabetis Type I</span>
+                                <input type="checkbox" name="disease[]" value="Diabetis Type I"><span>Diabetis Type I</span>
                             </label>
                             <label class="ckbox m-2">
-                                <input type="checkbox" value="Diabetis Type II"><span>Diabetis Type II</span>
+                                <input type="checkbox" name="disease[]" value="Diabetis Type II"><span>Diabetis Type II</span>
                             </label>
                             <label class="ckbox m-2">
-                                <input type="checkbox" value="Rheumatoid Athritis"><span>Rheumatoid Athritis</span>
-                            </label>
-                        </div><!-- col -->
-
-                        <div class="col-lg">
-                            <label class="ckbox m-2">
-                                <input type="checkbox" value="Aneamia"><span>Aneamia</span>
-                            </label>
-                            <label class="ckbox m-2">
-                                <input type="checkbox" value="High Blood Pressure"><span>High Blood Pressure</span>
-                            </label>
-                            <label class="ckbox m-2">
-                                <input type="checkbox" value="Coronary Artery Dis."><span>Coronary Artery Dis.</span>
+                                <input type="checkbox" name="disease[]" value="Rheumatoid Athritis"><span>Rheumatoid Athritis</span>
                             </label>
                         </div><!-- col -->
 
                         <div class="col-lg">
                             <label class="ckbox m-2">
-                                <input type="checkbox" value="High Cholesterol"><span>High Cholesterol</span>
+                                <input type="checkbox" name="disease[]" value="Aneamia"><span>Aneamia</span>
                             </label>
                             <label class="ckbox m-2">
-                                <input type="checkbox" value="Heart Attacks"><span>Heart Attacks</span>
+                                <input type="checkbox" name="disease[]" value="High Blood Pressure"><span>High Blood Pressure</span>
                             </label>
                             <label class="ckbox m-2">
-                                <input type="checkbox" value="Stroke"><span>Stroke</span>
+                                <input type="checkbox" name="disease[]" value="Coronary Artery Dis."><span>Coronary Artery Dis.</span>
+                            </label>
+                        </div><!-- col -->
+
+                        <div class="col-lg">
+                            <label class="ckbox m-2">
+                                <input type="checkbox" name="disease[]" value="High Cholesterol"><span>High Cholesterol</span>
+                            </label>
+                            <label class="ckbox m-2">
+                                <input type="checkbox" name="disease[]" value="Heart Attacks"><span>Heart Attacks</span>
+                            </label>
+                            <label class="ckbox m-2">
+                                <input type="checkbox" name="disease[]" value="Stroke"><span>Stroke</span>
                             </label>
                         </div><!-- col -->
 
@@ -99,7 +99,7 @@
                     <br>
                     <div class="row row-xs wd-xl-80p">
                         <div class="col-sm-6 col-md-3"><button type="reset" class="btn btn-danger btn-with-icon btn-block"><i class="typcn typcn-delete"></i> Cancel</button></div>
-                        <div class="col-sm-6 col-md-3 mg-t-10 mg-sm-t-0"><button class="btn btn-primary btn-with-icon btn-block"><i class="far fa-save"></i> Return Back</button></div>
+                        <div class="col-sm-6 col-md-3 mg-t-10 mg-sm-t-0"><a class="btn btn-primary btn-with-icon btn-block"><i class="far fa-save"></i> Return Back</a></div>
                         <div class="col-sm-6 col-md-3 mg-t-10 mg-md-t-0"><button class="btn btn-primary btn-with-icon btn-block"><i class="far fa-save"></i> Save and Continue</button></div>
                     </div><!-- row -->
                 </form>

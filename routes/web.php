@@ -37,12 +37,12 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/new-patient/diagnosis/{id}', 'App\Http\Controllers\DiagnosisController@index')->name('new-patient-diagnosis');
 
-    Route::post('/new-patient/diagnosis/add{id}', 'App\Http\Controllers\DiagnosisController@addDiagnosis')->name('diagnosis-add');
+    Route::post('/new-patient/diagnosis/add/{id}', 'App\Http\Controllers\DiagnosisController@addDiagnosis')->name('diagnosis-add');
 
 
-    Route::get('/new-patient/medical-history', 'App\Http\Controllers\MedicalHistoryController@index')->name('new-patient-medical-history');
+    Route::get('/new-patient/medical-history/{id}', 'App\Http\Controllers\MedicalHistoryController@index')->name('new-patient-medical-history');
 
-    Route::post('/new-patient/medical-history/add', 'App\Http\Controllers\MedicalHistoryController@addMedicalHistory')->name('medical-history-add');
+    Route::post('/new-patient/medical-history/add/{id}', 'App\Http\Controllers\MedicalHistoryController@addMedicalHistory')->name('medical-history-add');
 
 
     Route::get('/new-patient/surgical-history', 'App\Http\Controllers\SurgicalHistoryController@index')->name('new-patient-surgical-history');
