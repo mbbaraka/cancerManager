@@ -19,6 +19,7 @@ class CreateParticularsTable extends Migration
             $table->string('officer_id')->references('id')->on('officers')->onDelete('cascade');
             $table->string('refered_by')->nullable();
             $table->enum('status', ['Positive', 'Suspect'])->default('Suspect');
+            $table->string('type')->nullable();
             $table->string('stage')->nullable();
             $table->string('treatment')->nullable();
             $table->string('description')->nullable();

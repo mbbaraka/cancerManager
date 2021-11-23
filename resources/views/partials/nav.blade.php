@@ -17,7 +17,7 @@
             <a href="" class="nav-link with-sub"><i class="typcn typcn-document"></i> Patients</a>
             <nav class="az-menu-sub">
               <a href="{{ route('new-patient') }}" class="nav-link">Add New</a>
-              <a href="{{ route('referred-patients') }}" class="nav-link">View All</a>
+              <a href="{{ route('patient-index') }}" class="nav-link">View All</a>
             </nav>
           </li>
           <li class="nav-item">
@@ -57,7 +57,7 @@
           </div><!-- dropdown-menu -->
         </div><!-- az-header-notification -->
         <div class="dropdown az-profile-menu">
-          <a href="" class="az-img-user"><img src="{{ asset('cancerManager/img/faces/face1.jpg') }}" alt=""></a>
+          <a href="" class="az-img-user"><img src="{{ asset('cancerManager/img/faces/face.jpg') }}" alt=""></a>
           <div class="dropdown-menu">
             <div class="az-dropdown-header d-sm-none">
               <a href="" class="az-header-arrow"><i class="icon ion-md-arrow-back"></i></a>

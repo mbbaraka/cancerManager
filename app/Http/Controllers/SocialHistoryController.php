@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Diagnosis;
+use App\Models\MedicalHistory;
+use App\Models\Patient;
 use App\Models\SocialHistory;
+use App\Models\SurgicalHistory;
 use Illuminate\Http\Request;
 
 class SocialHistoryController extends Controller
@@ -30,6 +34,19 @@ class SocialHistoryController extends Controller
     }
 
     public function finish ($id) {
-        return view('home.patients.finish');
+
+        //getting patient information.
+        $pat = Patient::where('patient_id', $id)->first();
+        // Getting patient diagnosis
+        $diag = Diagnosis::where('patient_id', $id)->first();
+        // Medical history
+        $history = MedicalHistory::get()->where('patient_id', $id);
+        // Surgical history
+        $surgical = SurgicalHistory::get()->where('patient_id', $id);
+        // social history
+        $social = SocialHistory::where('patient_id', $id)->first();
+        return view('home.patients.finish',
+            compact('pat', 'diag', 'history', 'surgical', 'social')
+        );
     }
 }

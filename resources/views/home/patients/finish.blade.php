@@ -53,23 +53,112 @@
                     </nav>
                 </div><!-- card-header -->
               <div class="card-body p-3">
-                <h3>Patient Details</h3>
-                <form action="{{ route('social-history-add') }}" method="post">
-                    @csrf
+                <h3 class="text-center">Patient Registration Summery</h3>
+                    <div class="row row-sm p-3 justify-content-center">
 
-                    <div class="row row-sm p-3">
-                        <p>This is the finish page. It will have the summary of all the patient details for a review just in case of any error!</p>
+                        <table class="col-md-11 table table-responsive-sm">
+                            <tr><td colspan="4"><h4>Patient Particulars</h4></td></tr>
+                            <tr>
+                                <td>Patient Name: </td>
+                                <td>{{ $pat->name }}</td>
+                                <td>Date of Birth: </td>
+                                <td>{{ $pat->date_of_birth }}</td>
+                            </tr>
+                            <tr>
+                                <td>Gender: </td>
+                                <td>
+                                    @if ($pat->gender == "m")
+                                        {{ "Male" }}
+                                    @elseif ($pat->gender == "f")
+                                        {{ "Female" }}
+                                    @endif
+                                </td>
+                                <td>Village: </td>
+                                <td>{{ $pat->village }}</td>
+                            </tr>
+                            <tr>
+                                <td>Sub County: </td>
+                                <td>{{ $pat->sub_county }}</td>
+                                <td>Phone Number: </td>
+                                <td>{{ $pat->phone }}</td>
+                            </tr>
+                            <tr>
+                                <td>Next Of Kin: </td>
+                                <td>{{ $pat->next_of_kin }}</td>
+                                <td>Next of Kin Phone Number: </td>
+                                <td>{{ $pat->next_of_kin_phone }}</td>
+                            </tr>
 
+                            <tr><td colspan="4"><h4>Patient Diagnosis</h4></td></tr>
+                            <tr>
+                                <td>Status: </td>
+                                <td>{{ $diag->status }}</td>
+                                <td>Type: </td>
+                                <td>{{ $diag->type }}</td>
+                            </tr>
+                            <tr>
+                                <td>Stage: </td>
+                                <td>{{ $diag->stage }}</td>
+                                <td>Treatment: </td>
+                                <td>{{ $diag->treatment }}</td>
+                            </tr>
+                            <tr>
+                                <td>Description: </td>
+                                <td>{{ $diag->description }}</td>
+                                <td>Attachments: </td>
+                                <td>{{ $diag->attachments }}</td>
+                            </tr>
+
+                            <tr><td colspan="4"><h4>Medical History</h4></td></tr>
+                            <tr>
+                                <td>Diseases:</td>
+                                <td>
+                                    @foreach ($history as $item)
+                                        <li>{{ $item->disease }}</li>
+                                    @endforeach
+                                </td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+
+                            <tr><td colspan="4"><h4>Surgical History</h4></td></tr>
+                            @foreach ($surgical as $item)
+                            <tr>
+                                <td>Type: </td>
+                                <td>{{ $item->type }}</td>
+                                <td>Year: </td>
+                                <td>{{ $item->year }}</td>
+                            </tr>
+                            @endforeach
+
+                            <tr><td colspan="4"><h4>Medical History</h4></td></tr>
+                            <tr>
+                                <td>Marital Status: </td>
+                                <td>{{ $social->marital_status }}</td>
+                                <td>Tobbaco Use: </td>
+                                <td>{{ $social->tobaco_use }}</td>
+                            </tr>
+                            <tr>
+                                <td>Duration of Use: </td>
+                                <td>{{ $social->duration_of_use }}</td>
+                                <td>Packs Per Day: </td>
+                                <td>{{ $social->packs_per_day }}</td>
+                            </tr>
+                            <tr>
+                                <td>Alcohol Use: </td>
+                                <td>{{ $social->alcohol_use }}</td>
+                                <td>Bottlers Per Day: </td>
+                                <td>{{ $social->bottles_per_day }}</td>
+                            </tr>
+                        </table>
                     </div><!-- row -->
 
 
                     <br>
-                    <div class="row row-xs wd-xl-80p">
-                        <div class="col-sm-6 col-md-3"><button type="reset" class="btn btn-danger btn-with-icon btn-block"><i class="typcn typcn-delete"></i> Cancel</button></div>
-                        <div class="col-sm-6 col-md-3 mg-t-10 mg-sm-t-0"><button class="btn btn-primary btn-with-icon btn-block"><i class="far fa-save"></i> Return Back</button></div>
-                        <div class="col-sm-6 col-md-3 mg-t-10 mg-md-t-0"><button class="btn btn-primary btn-with-icon btn-block"><i class="far fa-save"></i> Save and Continue</button></div>
+                    <div class="row row-xs ml-5 wd-xl-80p justify-content-between">
+                        <div class="col-sm-6 col-md-3"><a href="#" class="btn btn-danger btn-with-icon btn-block"><i class="typcn typcn-delete"></i> No, Delete Patient</a></div>
+                        <div class="col-sm-6 col-md-3 mg-t-10 mg-md-t-0"><a class="btn btn-primary btn-with-icon btn-block"><i class="far fa-save"></i> Finish</a></div>
                     </div><!-- row -->
-                </form>
               </div><!-- card-body -->
             </div><!-- card -->
           </div><!-- col -->
