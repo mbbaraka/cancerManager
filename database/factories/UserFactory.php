@@ -24,8 +24,11 @@ class UserFactory extends Factory
     public function definition()
     {
         return [
-            'name' => 'admin',
+            'first_name' => 'admin',
+            'last_name' => 'ad',
             'email' => 'admin@admin.com',
+            'phone' => '0773034311',
+            'role' => 'uci',
             'email_verified_at' => now(),
             'password' => Hash::make('helloworld'), // password
             'remember_token' => Str::random(10),
