@@ -11,7 +11,7 @@
         </div><!-- az-header-menu-header -->
         <ul class="nav">
           <li class="nav-item active show">
-            <a href="index.html" class="nav-link"><i class="typcn typcn-chart-area-outline"></i> Dashboard</a>
+            <a href="{{ url('/') }}" class="nav-link"><i class="typcn typcn-chart-area-outline"></i> Dashboard</a>
           </li>
           <li class="nav-item">
             <a href="" class="nav-link with-sub"><i class="typcn typcn-document"></i> Patients</a>
@@ -57,14 +57,14 @@
           </div><!-- dropdown-menu -->
         </div><!-- az-header-notification -->
         <div class="dropdown az-profile-menu">
-          <a href="" class="az-img-user"><img src="{{ asset('cancerManager/img/faces/face.jpg') }}" alt=""></a>
+          <a href="" class="az-img-user"><img src="{{ asset('cancerManager/img/faces/face17.jpg') }}" alt=""></a>
           <div class="dropdown-menu">
             <div class="az-dropdown-header d-sm-none">
               <a href="" class="az-header-arrow"><i class="icon ion-md-arrow-back"></i></a>
             </div>
             <div class="az-header-profile">
               <div class="az-img-user">
-                <img src="../img/faces/face1.jpg" alt="">
+                <img src="{{ asset('cancerManager/img/faces/face17.jpg') }}" alt="">
               </div><!-- az-img-user -->
               <h6>{{ Auth::user()->name }}</h6>
               <span>Doctor</span>

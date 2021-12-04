@@ -45,43 +45,39 @@
                     <table class="table table-hover mg-b-0">
                       <thead>
                         <tr>
-                          <th>ID</th>
+                          <th>Patient ID</th>
                           <th>Name</th>
-                          <th>Position</th>
-                          <th>Salary</th>
+                          <th>Diagnosis</th>
+                          <th>Status</th>
+                          <th>Progress</th>
                         </tr>
                       </thead>
                       <tbody>
-                        <tr>
-                          <th scope="row">1</th>
-                          <td>Tiger Nixon</td>
-                          <td>System Architect</td>
-                          <td>$320,800</td>
-                        </tr>
-                        <tr>
-                          <th scope="row">2</th>
-                          <td>Garrett Winters</td>
-                          <td>Accountant</td>
-                          <td>$170,750</td>
-                        </tr>
-                        <tr>
-                          <th scope="row">3</th>
-                          <td>Ashton Cox</td>
-                          <td>Junior Technical Author</td>
-                          <td>$86,000</td>
-                        </tr>
-                        <tr>
-                          <th scope="row">4</th>
-                          <td>Cedric Kelly</td>
-                          <td>Senior Javascript Developer</td>
-                          <td>$433,060</td>
-                        </tr>
-                        <tr>
-                          <th scope="row">5</th>
-                          <td>Airi Satou</td>
-                          <td>Accountant</td>
-                          <td>$162,700</td>
-                        </tr>
+                        @foreach ($referrals as $item)
+                        @php
+                            $patient = App\Models\Patient::find($item->pat_id);
+                        @endphp
+                            <tr>
+                                <th>{{ $patient->patient_id }}</th>
+                                <td>{{ $patient->name }}</td>
+                                <td>{{ $patient->diagnosis->type }}</td>
+                                <td>{{ $patient->diagnosis->status }}</td>
+                                <td>
+                                    @if ($item->progress=='normal')
+                                        <span class="badge badge-primary">{{ $item->progress }}</span>
+                                    @elseif ($item->progress=='critical')
+                                        <span class="badge badge-danger">{{ $item->progress }}</span>
+                                    @elseif ($item->progress=='cured')
+                                        <span class="badge badge-success">{{ $item->progress }}</span>
+                                    @elseif ($item->progress=='improving')
+                                        <span class="badge badge-warning">{{ $item->progress }}</span>
+                                    @elseif ($item->progress=='dead')
+                                        <span class="badge badge-secondary">{{ $item->progress }}</span>
+                                    @endif
+                                </td>
+                              </tr>
+
+                        @endforeach
                       </tbody>
                     </table>
                   </div>
@@ -96,31 +92,5 @@
 
   @include('partials.footer')
 
-  <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
-      <a class="navbar-brand" href="#">Navbar</a>
-      <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
-          aria-expanded="false" aria-label="Toggle navigation"></button>
-      <div class="collapse navbar-collapse" id="collapsibleNavId">
-          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-              <li class="nav-item active">
-                  <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="#">Link</a>
-              </li>
-              <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-                  <div class="dropdown-menu" aria-labelledby="dropdownId">
-                      <a class="dropdown-item" href="#">Action 1</a>
-                      <a class="dropdown-item" href="#">Action 2</a>
-                  </div>
-              </li>
-          </ul>
-          <form class="form-inline my-2 my-lg-0">
-              <input class="form-control mr-sm-2" type="text" placeholder="Search">
-              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-          </form>
-      </div>
-  </nav>
   @endsection
 

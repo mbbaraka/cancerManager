@@ -13,7 +13,6 @@ class Diagnosis extends Model
     protected $table = 'diagnosis';
 
     public function patient () {
-        return $this->belongsTo(Patient::class, 'pat_id');
+        return $this->belongsTo(Patient::class, 'patient_id');
     }
-
 }

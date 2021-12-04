@@ -17,7 +17,7 @@ class SocialHistoryController extends Controller
 
     public function addSocialHistory (Request $request, $id) {
         $social = new SocialHistory();
-        $social->patient_id = $id;
+        $social->pat_id = $id;
         $social->marital_status = $request->status;
         $social->tobaco_use = $request->tobaco_use;
         $social->duration_of_use = $request->duration_of_use;
@@ -38,13 +38,16 @@ class SocialHistoryController extends Controller
         //getting patient information.
         $pat = Patient::where('patient_id', $id)->first();
         // Getting patient diagnosis
-        $diag = Diagnosis::where('patient_id', $id)->first();
+        $diag = Diagnosis::where('pat_id', $id)->first();
         // Medical history
-        $history = MedicalHistory::get()->where('patient_id', $id);
+        $history = MedicalHistory::get()->where('pat_id', $id)->pluck('disease');
+        $history = explode(',', $history);
+        // var_dump($history);
+        // exit();
         // Surgical history
-        $surgical = SurgicalHistory::get()->where('patient_id', $id);
+        $surgical = SurgicalHistory::get()->where('pat_id', $id);
         // social history
-        $social = SocialHistory::where('patient_id', $id)->first();
+        $social = SocialHistory::where('pat_id', $id)->first();
         return view('home.patients.finish',
             compact('pat', 'diag', 'history', 'surgical', 'social')
         );

@@ -24,6 +24,8 @@ class CreatePatientsTable extends Migration
             $table->string('next_of_kin')->nullable();
             $table->string('next_of_kin_phone')->nullable();
             $table->timestamps();
+
+            $table->index('patient_id');
         });
     }
 

@@ -10,7 +10,16 @@ class Patient extends Model
 {
     use HasFactory;
 
+    protected $primaryKey = 'patient_id';
+
+    public $incrementing = false;
+
+
     public function diagnosis () {
-        return $this->hasMany(Diagnosis::class, 'patient_id');
+        return $this->hasOne(Diagnosis::class, 'pat_id', 'patient_id');
+    }
+
+    public function referrals () {
+        return $this->hasOne(Referral::class, 'pat_id', 'patient_id');
     }
 }

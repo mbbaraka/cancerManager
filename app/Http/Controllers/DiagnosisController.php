@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Auth;
 class DiagnosisController extends Controller
 {
     public function index($id) {
+        // $diagnosis = Diagnosis::where('pat_id', $id)->first();
         return view('home.patients.diagnosis', compact('id'));
     }
 
@@ -18,11 +19,13 @@ class DiagnosisController extends Controller
             'status' => 'required',
             'file' => 'csv,txt,xlx,xls,pdf|max:2048'
         ]);
+       
+
 
         $officer_id = Auth::user()->id;
 
         $diagnosis = new Diagnosis();
-        $diagnosis->patient_id = $patient_id;
+        $diagnosis->pat_id = $patient_id;
         $diagnosis->officer_id = $officer_id;
         $diagnosis->refered_by = $request->name;
         $diagnosis->status = $request->status;

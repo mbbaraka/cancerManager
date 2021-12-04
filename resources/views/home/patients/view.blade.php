@@ -9,8 +9,8 @@
       <div class="az-content-body">
         <div class="az-dashboard-one-title">
           <div>
-            <h2 class="az-dashboard-title">New Patient</h2>
-            <p class="az-dashboard-text">Add new cancer suspect case.</p>
+            <h2 class="az-dashboard-title">{{ Str::upper($patient->name) }}</h2>
+            <p class="az-dashboard-text">Patient Profile</p>
           </div>
           <div class="az-content-header-right">
             <div class="media">
@@ -39,74 +39,64 @@
         <div class="row row-sm mg-b-20">
           <div class="col-lg-12 ht-lg-100p">
             <div class="card card-dashboard-one">
-                <div class="az-dashboard-nav ml-2">
-                    <nav class="nav">
-                        <a class="nav-link" data-toggle="tab" href="#">Patient Surgical History</a>
-                        <a class="nav-link" data-toggle="tab" href="#">Diagnosis</a>
-                        <a class="nav-link" data-toggle="tab" href="#">Medical History</a>
-                        <a class="nav-link" href="#"><i class="far fa-save"></i> Surgical History</a>
-                        <a class="nav-link" href="#"><i class="far fa-file-pdf"></i> Social History</a>
-                        <a class="nav-link active" href="#"><i class="far fa-envelope"></i>Finish</a>
-                    </nav>
-
-                    <nav class="nav">
-                    </nav>
-                </div><!-- card-header -->
               <div class="card-body p-3">
-                <h3 class="text-center">Patient Registration Summery</h3>
+                <h3>
+                    Patient Information Summery
+                    <small><a class="text-secondary" href="javascript: history.go(-1)"><span class="float-right fa fa-reply"> Back</span></a></small>
+                </h3>
                     <div class="row row-sm p-3 justify-content-center">
 
                         <table class="col-md-11 table table-responsive-sm">
                             <tr><td colspan="4"><h4>Patient Particulars</h4></td></tr>
                             <tr>
                                 <td>Patient Name: </td>
-                                <td>{{ $pat->name }}</td>
+                                <td class="text-muted text-dark">{{ $patient->name }}</td>
                                 <td>Date of Birth: </td>
-                                <td>{{ $pat->date_of_birth }}</td>
+                                <td class="text-muted text-dark">{{ $patient->date_of_birth }}</td>
                             </tr>
                             <tr>
                                 <td>Gender: </td>
                                 <td>
-                                    @if ($pat->gender == "m")
+                                    @if ($patient->gender == "m")
                                         {{ "Male" }}
-                                    @elseif ($pat->gender == "f")
+                                    @elseif ($patient->gender == "f")
                                         {{ "Female" }}
                                     @endif
                                 </td>
                                 <td>Village: </td>
-                                <td>{{ $pat->village }}</td>
+                                <td cl>{{ $patient->village }}</td>
                             </tr>
                             <tr>
                                 <td>Sub County: </td>
-                                <td>{{ $pat->sub_county }}</td>
+                                <td class="text-muted text-dark">{{ $patient->sub_county }}</td>
                                 <td>Phone Number: </td>
-                                <td>{{ $pat->phone }}</td>
+                                <td class="text-muted text-dark">{{ $patient->phone }}</td>
                             </tr>
                             <tr>
                                 <td>Next Of Kin: </td>
-                                <td>{{ $pat->next_of_kin }}</td>
+                                <td class="text-muted text-dark">{{ $patient->next_of_kin }}</td>
                                 <td>Next of Kin Phone Number: </td>
-                                <td>{{ $pat->next_of_kin_phone }}</td>
+                                <td class="text-muted text-dark">{{ $patient->next_of_kin_phone }}</td>
                             </tr>
 
                             <tr><td colspan="4"><h4>Patient Diagnosis</h4></td></tr>
                             <tr>
                                 <td>Status: </td>
-                                <td>{{ $diag->status }}</td>
+                                <td class="text-muted text-dark">{{ $diag->status }}</td>
                                 <td>Type: </td>
-                                <td>{{ $diag->type }}</td>
+                                <td class="text-muted text-dark">{{ $diag->type }}</td>
                             </tr>
                             <tr>
                                 <td>Stage: </td>
-                                <td>{{ $diag->stage }}</td>
+                                <td class="text-muted text-dark">{{ $diag->stage }}</td>
                                 <td>Treatment: </td>
-                                <td>{{ $diag->treatment }}</td>
+                                <td class="text-muted text-dark">{{ $diag->treatment }}</td>
                             </tr>
                             <tr>
                                 <td>Description: </td>
-                                <td>{{ $diag->description }}</td>
+                                <td class="text-muted text-dark">{{ $diag->description }}</td>
                                 <td>Attachments: </td>
-                                <td>{{ $diag->attachments }}</td>
+                                <td class="text-muted text-dark">{{ $diag->attachments }}</td>
                             </tr>
 
                             <tr><td colspan="4"><h4>Medical History</h4></td></tr>
@@ -116,6 +106,7 @@
                                     @foreach ($history as $item)
                                         <li>{{ $item }}</li>
                                     @endforeach
+                                    {{--  {{ $history }}  --}}
                                 </td>
                                 <td></td>
                                 <td></td>
@@ -125,30 +116,30 @@
                             @foreach ($surgical as $item)
                             <tr>
                                 <td>Type: </td>
-                                <td>{{ $item->type }}</td>
+                                <td class="text-muted text-dark">{{ $item->type }}</td>
                                 <td>Year: </td>
-                                <td>{{ $item->year }}</td>
+                                <td class="text-muted text-dark">{{ $item->year }}</td>
                             </tr>
                             @endforeach
 
                             <tr><td colspan="4"><h4>Medical History</h4></td></tr>
                             <tr>
                                 <td>Marital Status: </td>
-                                <td>{{ $social->marital_status }}</td>
+                                <td class="text-muted text-dark">{{ $social->marital_status }}</td>
                                 <td>Tobbaco Use: </td>
-                                <td>{{ $social->tobaco_use }}</td>
+                                <td class="text-muted text-dark">{{ $social->tobaco_use }}</td>
                             </tr>
                             <tr>
                                 <td>Duration of Use: </td>
-                                <td>{{ $social->duration_of_use }}</td>
+                                <td class="text-muted text-dark">{{ $social->duration_of_use }}</td>
                                 <td>Packs Per Day: </td>
-                                <td>{{ $social->packs_per_day }}</td>
+                                <td class="text-muted text-dark">{{ $social->packs_per_day }}</td>
                             </tr>
                             <tr>
                                 <td>Alcohol Use: </td>
-                                <td>{{ $social->alcohol_use }}</td>
+                                <td class="text-muted text-dark">{{ $social->alcohol_use }}</td>
                                 <td>Bottlers Per Day: </td>
-                                <td>{{ $social->bottles_per_day }}</td>
+                                <td class="text-muted text-dark">{{ $social->bottles_per_day }}</td>
                             </tr>
                         </table>
                     </div><!-- row -->
@@ -156,8 +147,8 @@
 
                     <br>
                     <div class="row row-xs ml-5 wd-xl-80p justify-content-between">
-                        <div class="col-sm-6 col-md-3"><a href="#" class="btn btn-danger btn-with-icon btn-block"><i class="typcn typcn-delete"></i> No, Delete Patient</a></div>
-                        <div class="col-sm-6 col-md-3 mg-t-10 mg-md-t-0"><a href="{{ route('patient-index') }}" class="btn btn-primary btn-with-icon btn-block"><i class="far fa-save"></i> Finish</a></div>
+                        <div class="col-sm-6 col-md-3"><a href="#" class="btn btn-danger btn-with-icon btn-block"><i class="typcn typcn-delete"></i> Go Back</a></div>
+                        <div class="col-sm-6 col-md-3 mg-t-10 mg-md-t-0"><a href="{{ route('refer-patient', $patient->patient_id) }}" class="btn btn-primary btn-with-icon btn-block"><i class="far fa-save"></i> Refer to UCI</a></div>
                     </div><!-- row -->
               </div><!-- card-body -->
             </div><!-- card -->

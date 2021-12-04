@@ -58,9 +58,19 @@ Route::middleware(['auth'])->group(function () {
 
 
     /** Referred patient routes */
-    Route::get('/referred-patients', 'App\Http\Controllers\ReferredController@index')->name('referred-patients');
+    Route::get('/referred-patients', 'App\Http\Controllers\ReferralController@index')->name('referred-patients');
+    // Refer patient to UCI
 
+    Route::get('/patients/refer/{id}', 'App\Http\Controllers\ReferralController@refer')->name('refer-patient');
 
     Route::get('/patients', 'App\Http\Controllers\PatientController@index')->name('patient-index');
+
+    // View single patient
+
+    Route::get('/patients/{id}', 'App\Http\Controllers\PatientController@single')->name('patient-single');
+
+
+
+
 
 });

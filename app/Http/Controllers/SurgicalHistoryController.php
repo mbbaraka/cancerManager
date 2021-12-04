@@ -18,7 +18,7 @@ class SurgicalHistoryController extends Controller
         ]);
 
         $surgery = new SurgicalHistory();
-        $surgery->patient_id = $id;
+        $surgery->pat_id = $id;
         $surgery->year = $request->year;
         $surgery->type = $request->type;
 

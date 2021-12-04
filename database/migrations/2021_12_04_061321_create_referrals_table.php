@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSurgicalHistoriesTable extends Migration
+class CreateReferralsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,10 @@ class CreateSurgicalHistoriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('surgical_histories', function (Blueprint $table) {
+        Schema::create('referrals', function (Blueprint $table) {
             $table->id();
             $table->string('pat_id');
-            $table->string('year')->nullable();
-            $table->string('type')->nullable();
+            $table->enum('progress', ['normal', 'critical', 'cured', 'dead', 'improving']);
             $table->timestamps();
 
             $table->foreign('pat_id')->references('patient_id')->on('patients')->onDelete('cascade');
@@ -31,6 +30,6 @@ class CreateSurgicalHistoriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('surgical_histories');
+        Schema::dropIfExists('referrals');
     }
 }

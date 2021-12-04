@@ -15,7 +15,7 @@ class CreateSocialHistoriesTable extends Migration
     {
         Schema::create('social_histories', function (Blueprint $table) {
             $table->id();
-            $table->string('patient_id')->references('id')->on('patients')->onDelete('cascade');
+            $table->string('pat_id');
             $table->string('marital_status')->nullable();
             $table->string('tobaco_use')->nullable();
             $table->string('duration_of_use')->nullable();
@@ -23,6 +23,8 @@ class CreateSocialHistoriesTable extends Migration
             $table->string('alcohol_use')->nullable();
             $table->string('bottles_per_day')->nullable();
             $table->timestamps();
+
+            $table->foreign('pat_id')->references('patient_id')->on('patients')->onDelete('cascade');
         });
     }
 

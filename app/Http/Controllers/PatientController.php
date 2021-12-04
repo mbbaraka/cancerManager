@@ -4,7 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 Use Alert;
+use App\Models\Diagnosis;
+use App\Models\MedicalHistory;
 use App\Models\Patient;
+use App\Models\Referral;
+use App\Models\SocialHistory;
+use App\Models\SurgicalHistory;
 
 class PatientController extends Controller
 {
@@ -52,6 +57,27 @@ class PatientController extends Controller
             return redirect()->route('new-patient-diagnosis', $patient_id);
         }
 
+    }
+
+    // show single patient
+    public function single ($id) {
+        $patient = Patient::findOrFail($id);
+        // Getting patient diagnosis
+        $diag = Diagnosis::where('pat_id', $id)->first();
+        // Medical history
+        $history = MedicalHistory::first()->where('pat_id', $id)->pluck('disease');
+        $history = explode(',', $history);
+        // $history = json_decode($history);
+
+        // Surgical history
+        $surgical = SurgicalHistory::get()->where('pat_id', $id);
+        // social history
+        $social = SocialHistory::where('pat_id', $id)->first();
+        return view('home.patients.view',
+            compact('patient', 'diag', 'history', 'surgical', 'social')
+        );
 
     }
+
+    
 }

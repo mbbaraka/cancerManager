@@ -15,8 +15,8 @@ class CreateParticularsTable extends Migration
     {
         Schema::create('diagnosis', function (Blueprint $table) {
             $table->id();
-            $table->string('patient_id')->references('id')->on('patients')->onDelete('cascade');
-            $table->string('officer_id')->references('id')->on('officers')->onDelete('cascade');
+            $table->string('pat_id');
+            $table->string('officer_id');
             $table->string('refered_by')->nullable();
             $table->enum('status', ['Positive', 'Suspect'])->default('Suspect');
             $table->string('type')->nullable();
@@ -25,6 +25,9 @@ class CreateParticularsTable extends Migration
             $table->string('description')->nullable();
             $table->string('attachments')->nullable();
             $table->timestamps();
+
+            $table->foreign('pat_id')->references('patient_id')->on('patients')->onDelete('cascade');
+
         });
     }
 
