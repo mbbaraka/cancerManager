@@ -40,13 +40,15 @@
           <div class="col-lg-12 ht-lg-100p">
             <div class="card card-dashboard-one">
               <div class="card-body p-3">
-                <h3>
-                    Patient Information Summery
-                    <small><a class="text-secondary" href="javascript: history.go(-1)"><span class="float-right fa fa-reply"> Back</span></a></small>
-                </h3>
+                    <div class="row">
+                        <h3 class="col-8">Patient Information Summery</h3>
+
+                        <div class="col-4 justify-content-between"><a href="{{route('create-pdf', ['download'=>'pdf', $patient->patient_id])}}" class="btn btn-warning"><i class="fa fa-print"></i> to PDF</a><a class="btn btn-secondary" href="javascript: history.go(-1)"><span class="float-right fa fa-reply"> Back</span></a></div>
+                    </div>
                     <div class="row row-sm p-3 justify-content-center">
 
-                        <table class="col-md-11 table table-responsive-sm">
+
+                        <table class="col-md-12 table table-responsive-sm">
                             <tr><td colspan="4"><h4>Patient Particulars</h4></td></tr>
                             <tr>
                                 <td>Patient Name: </td>

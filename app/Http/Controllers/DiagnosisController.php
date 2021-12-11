@@ -19,7 +19,7 @@ class DiagnosisController extends Controller
             'status' => 'required',
             'file' => 'csv,txt,xlx,xls,pdf|max:2048'
         ]);
-       
+
 
 
         $officer_id = Auth::user()->id;
@@ -44,7 +44,7 @@ class DiagnosisController extends Controller
         }else{
             $diagnosis->attachments = "";
         }
-
+ 
         $save = $diagnosis->save();
 
         if ($save) {

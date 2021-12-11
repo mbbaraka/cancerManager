@@ -10,6 +10,7 @@ use App\Models\Patient;
 use App\Models\Referral;
 use App\Models\SocialHistory;
 use App\Models\SurgicalHistory;
+use PDF;
 
 class PatientController extends Controller
 {
@@ -79,5 +80,34 @@ class PatientController extends Controller
 
     }
 
-    
+    // Create pdf
+    public function createPDF (Request $request, $id) {
+        // $id = 'ID-92106';
+        // retreive all records from db
+        $patient = Patient::findOrFail($id);
+        // Getting patient diagnosis
+        $diag = Diagnosis::where('pat_id', $id)->first();
+        // Medical history
+        $history = MedicalHistory::first()->where('pat_id', $id)->pluck('disease');
+        $history = explode(',', $history);
+        // $history = json_decode($history);
+
+        // Surgical history
+        $surgical = SurgicalHistory::get()->where('pat_id', $id);
+        // social history
+        $social = SocialHistory::where('pat_id', $id)->first();
+
+        // // share data to view
+        // view()->share('employee',$patient, $diag, $history, $surgical, $social);
+        // $pdf = PDF::loadView('home.patients.pdf', ['patient' =>$patient, 'diag'=> $diag, 'history' => $history, 'surgical'=>$surgical, 'social' => $social]);
+
+        // // download PDF file with download method
+        // return $pdf->download($patient->name.'-form.pdf');
+        if($request->has('download'))
+        {
+            // $pdf = PDF::loadView('home.patients.pdf',compact('patient', 'diag', 'history', 'surgical', 'social'));
+            $pdf = PDF::loadView('home.patients.pdf', compact('patient', 'diag', 'history', 'surgical', 'social'))->setOptions(['defaultFont' => 'sans-serif']);
+            return $pdf->download($patient->name.'-form.pdf');
+        }
+    }
 }

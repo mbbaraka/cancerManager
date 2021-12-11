@@ -46,7 +46,7 @@
                 <div class="table-responsive">
                     <table class="table table-hover mg-b-0">
                       <thead>
-                        <tr>
+                        <tr class="thead-dark">
                           <th>S/n</th>
                           <th>Name</th>
                           <th>Status</th>

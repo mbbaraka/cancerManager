@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PatientController;
 use Illuminate\Routing\RouteGroup;
 use Illuminate\Support\Facades\Route;
 
@@ -70,6 +71,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/patients/{id}', 'App\Http\Controllers\PatientController@single')->name('patient-single');
 
 
+    // Create Pdf
+    Route::get('/patient/pdf/{id}', [PatientController::class, 'createPDF'])->name('create-pdf');
+    // Route::get('/patient/pdf/{id}', [PatientController::class, 'createPDF'])->name('create-pdf');
 
 
 
