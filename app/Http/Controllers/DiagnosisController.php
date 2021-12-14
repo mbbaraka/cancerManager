@@ -17,7 +17,7 @@ class DiagnosisController extends Controller
     public function addDiagnosis (Request $request, $patient_id) {
         $this->validate($request, [
             'status' => 'required',
-            'file' => 'csv,txt,xlx,xls,pdf|max:2048'
+            'file' => 'file|image|mimes:jpeg,png,gif,jpg|csv,txt,xlx,xls,pdf|max:2048'
         ]);
 
 
@@ -36,15 +36,25 @@ class DiagnosisController extends Controller
 
         if ($request->attachments != "") {
             # code...
-            $name = $request->file('attachments')->getClientOriginalName();
+            // $name = $request->file('attachments')->getClientOriginalName();
 
-            $path = $request->file('attachments')->store('public/attachments');
+            // $path = $request->file('attachments')->store('public/attachments');
 
-            $diagnosis->attachments = $name;
+
+            $file = $request->file('attachments');
+
+            // Generate a file name with extension
+            $fileName = 'file-'.time().'.'.$file->getClientOriginalExtension();
+
+            // Save the file
+            $path = $file->storeAs('public/attachments', $fileName);
+
+            $diagnosis->attachments = $fileName;
+
         }else{
             $diagnosis->attachments = "";
         }
- 
+
         $save = $diagnosis->save();
 
         if ($save) {

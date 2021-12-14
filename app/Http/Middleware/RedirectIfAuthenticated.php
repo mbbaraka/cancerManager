@@ -22,9 +22,24 @@ class RedirectIfAuthenticated
         $guards = empty($guards) ? [null] : $guards;
 
         foreach ($guards as $guard) {
-            if (Auth::guard($guard)->check()) {
-                return redirect(RouteServiceProvider::HOME);
+            if (Auth::guard($guard)->check() && $guard == 'uci') {
+                return redirect()->route('uci-home');
+            }elseif (Auth::guard($guard)->check() && $guard == 'web') {
+                return redirect()->route('/');
             }
+            // switch ($guard) {
+            //     case 'uci':
+            //       if (Auth::guard($guard)->check()) {
+            //         return redirect()->route('uci-home');
+            //       }
+
+            //     default:
+            //       if (Auth::guard($guard)->check()) {
+            //           return redirect('/');
+            //       }
+            //       break;
+            //   }
+              return $next($request);
         }
 
         return $next($request);

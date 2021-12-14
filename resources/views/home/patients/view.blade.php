@@ -98,7 +98,7 @@
                                 <td>Description: </td>
                                 <td class="text-muted text-dark">{{ $diag->description }}</td>
                                 <td>Attachments: </td>
-                                <td class="text-muted text-dark">{{ $diag->attachments }}</td>
+                                <td class="text-muted text-dark"><a href="{{ Storage::url('attachments/'.$diag->attachments) }}" target="_blank">{{ $diag->attachments }}</a></td>
                             </tr>
 
                             <tr><td colspan="4"><h4>Medical History</h4></td></tr>
@@ -106,9 +106,8 @@
                                 <td>Diseases:</td>
                                 <td>
                                     @foreach ($history as $item)
-                                        <li>{{ $item }}</li>
+                                        <li>{{ str_replace(['[', ']', '"', ''], ' ', $item); }}</li>
                                     @endforeach
-                                    {{--  {{ $history }}  --}}
                                 </td>
                                 <td></td>
                                 <td></td>

@@ -114,7 +114,7 @@
                             <td>Diseases:</td>
                             <td>
                                 @foreach ($history as $item)
-                                    <li>{{ $item }}</li>
+                                    <li>{{ str_replace(['[', ']', '"', ''], ' ', $item); }}</li>
                                 @endforeach
                                 {{--  {{ $history }}  --}}
                             </td>

@@ -75,9 +75,9 @@
       {{-- <h1 class="az-logo text-center">CMS</h1> --}}
       <div class="az-signin-header">
         <h2 class="text-center"><img src="{{ asset('cmsystem.png') }}" alt=""></h2>
-        <h4>Please sign in to continue</h4>
+        <h3>UCI Login</h3>
 
-        <form method="POST" action="{{ route('login') }}">
+        <form method="POST" action="{{ route('uci-login-check') }}">
             @csrf
           <div class="form-group">
             <label>Email</label>
@@ -101,7 +101,7 @@
         </form>
         <p class="az-signin-footer pt-3">
             <a href="{{ route('password.request') }}">Forgot password?</a>
-            <a href="{{ url('uci/login') }}" class="float-right">UCI Login</a>
+            <a href="{{ route('login') }}" class="float-right">Hospital Login</a>
         </p>
       </div><!-- az-signin-header -->
     </div><!-- az-card-signin -->

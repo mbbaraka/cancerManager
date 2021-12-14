@@ -77,4 +77,29 @@ Route::middleware(['auth'])->group(function () {
 
 
 
+
+
+
+
+
 });
+
+
+    // UCI Routes
+
+    // login
+    // Route::get('/uci/login', 'App\Http\Controllers\UCIController@login')->name('uci-login');
+
+    Route::post('/uci/login/check', 'App\Http\Controllers\Auth\UCILoginController@login')->name('uci-login-check');
+
+    // homepage uci
+
+    Route::get('/uci', 'App\Http\Controllers\UCIController@index')->name('uci-home');
+
+    Route::get('/uci/login', function () {
+        return view('uci.auth.login');
+    });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

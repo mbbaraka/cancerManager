@@ -2,32 +2,26 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Models\UCI;
 use App\Models\Diagnosis;
 use App\Models\Patient;
 use App\Models\Referral;
 use Carbon\Carbon;
 use Faker\Calculator\Luhn;
-use Illuminate\Http\Request;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
-class HomeController extends Controller
+class UCIController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
+    use AuthenticatesUsers;
+
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth:uci');
     }
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
-    public function index()
-    {
+    public function index () {
         /** Managing dashboard */
 
         // location
@@ -84,5 +78,35 @@ class HomeController extends Controller
             'improving', 'treatment', 'critical', 'total_refs'
             )
         );
+    }
+
+    // public function login () {
+    //     return view('uci.auth.login');
+    // }
+
+    public function checkLogin (Request $request){
+
+        $this->validate($request, [
+            'email' => 'required|email',
+            'password' => 'required',
+        ]);
+        if (auth()->guard('uci')->attempt(['email' => $request->input('email'), 'password' => $request->input('password')])) {
+            return redirect()->route('uci-home');
+        } else {
+            // dd('your username and password are wrong.');
+            return redirect()->back()->withErrors('Invalid Password');
+        }
+        // if ($check) {
+        //     $checkPW = password_verify($request->password, $check->password);
+        //     if ($checkPW) {
+        //         return redirect()->route('uci-home');
+        //     }else{
+
+        //         return redirect()->back()->withErrors('Invalid Password');
+        //     }
+        // }else{
+        //     return redirect()->back()->withSuccess('Login details are not valid');
+        // }
+
     }
 }

@@ -90,7 +90,7 @@
                               <option label="Choose Cancer Stage"></option>
                               <option value="Lung Cancer">Lung Cancer</option>
                               <option value="Breast Cancer">Breast Cancer</option>
-                              <option value="Cervial Cancer">Cervial Cancer</option>
+                              <option value="Cervical Cancer">Cervial Cancer</option>
                               <option value="Skin Cancer">Skin Cancer</option>
                             </select>
                             @error('type')
