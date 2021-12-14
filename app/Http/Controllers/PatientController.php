@@ -28,11 +28,11 @@ class PatientController extends Controller
             'name' => 'required',
             'dob' => 'required',
             'gender' => 'required',
-            'phone' => 'required|regex:/(01)[0-9]{10}/',
+            'phone' => 'required|regex:/(07)[0-9]{9}/',
             'village' => 'required',
             'subcounty' => 'required',
             'next_of_kin' => 'required',
-            'next_of_kin_phone' => 'required|regex:/(01)[0-9]{10}/'
+            'next_of_kin_phone' => 'required|regex:/(07)[0-9]{9}/'
         ]);
 
         $particulars = new Patient();
