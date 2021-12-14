@@ -53,7 +53,7 @@
                     </nav>
                 </div><!-- card-header -->
               <div class="card-body p-3">
-                <h3>Patient Details</h3>
+                <h3>Patient Medical History</h3>
                 <form action="{{ route('medical-history-add', $id) }}" method="post" enctype="multipart/form-data">
                     @csrf
 

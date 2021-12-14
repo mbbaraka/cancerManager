@@ -10,7 +10,7 @@
         <div class="az-dashboard-one-title">
           <div>
             <h2 class="az-dashboard-title">New Patient</h2>
-            <p class="az-dashboard-text">Add new cancer suspect case.</p>
+            <p class="az-dashboard-text">Add Surgical History.</p>
           </div>
           <div class="az-content-header-right">
             <div class="media">
@@ -53,7 +53,7 @@
                     </nav>
                 </div><!-- card-header -->
               <div class="card-body p-3">
-                <h3>Patient Details</h3>
+                <h3>Patient Surgical History</h3>
                 <form action="{{ route('surgical-history-add', $id) }}" method="post">
                     @csrf
 
