@@ -69,11 +69,11 @@
                             <td>{{ $item->sub_county }}</td>
                             <td>
                                 <a class="btn btn-outline-light" href="{{ route('patient-single', $item->patient_id) }}">
-                                    <span class="fa fa-eye"></span>
+                                    <span class="fa fa-eye" title="View"></span>
                                 </a>
                                 <!-- Button trigger modal -->
                                 <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#editModal{{ $item->patient_id }}">
-                                  <span class="fa fa-edit"></span>
+                                  <span class="fa fa-edit" title="Edit"></span>
                                 </button>
 
                                 <!-- Modal -->

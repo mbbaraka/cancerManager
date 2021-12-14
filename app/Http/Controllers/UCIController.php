@@ -59,7 +59,7 @@ class UCIController extends Controller
 
         //cancer by gender
         $get_lung_cancer = Diagnosis::where('type', 'Lung Cancer')->get();
-        $get_skin_cancer = Diagnosis::where('type', 'SKin Cancer')->get();
+        $get_skin_cancer = Diagnosis::where('type', 'Skin Cancer')->get();
         $get_cervical_cancer = Diagnosis::where('type', 'Cervical Cancer')->get();
         $get_breast_cancer = Diagnosis::where('type', 'Breast Cancer')->get();
 
