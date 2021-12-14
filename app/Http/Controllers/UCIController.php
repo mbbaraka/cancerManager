@@ -69,6 +69,19 @@ class UCIController extends Controller
         $improving = Referral::where('progress', 'improving')->get()->count();
         $total_refs = Referral::get()->count();
 
+        if ($total_refs >= 0) {
+            $total_refs = 1;
+        }
+        if ($treatment >= 0) {
+            $treatment = 1;
+        }
+        if ($critical >= 0) {
+            $critical = 1;
+        }
+        if ($improving >= 0) {
+            $improving = 1;
+        }
+
 
         return view('home.index',
         compact(
