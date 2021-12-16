@@ -62,7 +62,7 @@ class DiagnosisController extends Controller
 
             if ($save) {
                 toast('Updated Patient diagnosis details', 'success');
-                return redirect()->back();
+                return redirect()->route('new-patient-medical-history', $patient_id);
             }
         }
 
