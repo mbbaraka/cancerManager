@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-@include('partials.nav')
+@include('partials.uci.nav')
 
   <div class="az-content az-content-dashboard">
     <div class="container">
@@ -47,7 +47,7 @@
                     <div class="col-sm-6">
                       <div class="card card-dashboard-two">
                         <div class="card-header pb-3">
-                          <h6>{{ number_format($improving, 2) }}% <i class="icon ion-md-trending-up tx-danger"></i> <small>{{ number_format(($improving/$total_refs)*100, 2) }} %</small></h6>
+                          <h6>{{ number_format($improving, 2) }}% <small>{{ number_format(($improving/$total_refs)*100, 2) }} %</small></h6>
                           <p>Improving</p>
                         </div><!-- card-header -->
                       </div><!-- card -->
@@ -55,7 +55,7 @@
                     <div class="col-sm-6">
                       <div class="card card-dashboard-two">
                         <div class="card-header pb-3">
-                          <h6>{{ number_format($critical, 2) }} <i class="icon ion-md-trending-down tx-danger"></i> <small>{{ number_format(($critical/$total_refs)*100, 2) }}%</small></h6>
+                          <h6>{{ number_format($critical, 2) }} <small>{{ number_format(($critical/$total_refs)*100, 2) }}%</small></h6>
                           <p>Critical</p>
                         </div><!-- card-header -->
                       </div><!-- card -->
@@ -66,7 +66,7 @@
                     <div class="col-sm-6">
                         <div class="card card-dashboard-two">
                           <div class="card-header pb-3">
-                            <h6>{{ number_format($treatment, 2) }} <i class="icon ion-md-trending-down tx-danger"></i> <small>{{ number_format(($treatment/$total_refs)*100, 2) }}%</small></h6>
+                            <h6>{{ number_format($treatment, 2) }} <small>{{ number_format(($treatment/$total_refs)*100, 2) }}%</small></h6>
                             <p>On Treatment</p>
                           </div><!-- card-header -->
                         </div><!-- card -->

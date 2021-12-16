@@ -2,7 +2,7 @@
 
 @section('content')
 
-@include('partials.nav')
+@include('partials.uci.nav')
 
   <div class="az-content az-content-dashboard">
     <div class="container">
@@ -149,7 +149,7 @@
                     <br>
                     <div class="row row-xs ml-5 wd-xl-80p justify-content-between">
                         <div class="col-sm-6 col-md-3"><a href="javascript: history.go(-1)" class="btn btn-danger btn-with-icon btn-block"><i class="typcn typcn-delete"></i> Go Back</a></div>
-                        <div class="col-sm-6 col-md-3 mg-t-10 mg-md-t-0"><a href="{{ route('refer-patient', $patient->patient_id) }}" class="btn btn-primary btn-with-icon btn-block"><i class="far fa-save"></i> Refer to UCI</a></div>
+                        <div class="col-sm-6 col-md-4 mg-t-10 mg-md-t-0"><a data-toggle="modal" href="#{{ $patient->patient_id }}" class="btn btn-primary btn-with-icon btn-block"><i class="far fa-save"></i> Change Patient Progress</a></div>
                     </div><!-- row -->
               </div><!-- card-body -->
             </div><!-- card -->
@@ -160,5 +160,35 @@
     </div>
   </div><!-- az-content -->
 
+  <!-- Modal -->
+  <div class="modal fade" id="{{ $patient->patient_id }}" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h5 class="modal-title">Change Patient Status</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                      </button>
+              </div>
+              <div class="modal-body">
+                  <form action="{{ route('change.status') }}" method="post">
+                      @csrf
+                      <input type="hidden" name="id" value="{{ $patient->patient_id }}">
+                      <select class="form-control" name="status" id="">
+                          <option value="normal">Normal</option>
+                          <option value="progressing">Progressing</option>
+                          <option value="critical">Critical</option>
+                          <option value="cured">Cured</option>
+                          <option value="dead">Dead</option>
+                      </select>
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
+            </form>
+          </div>
+      </div>
+  </div>
   @include('partials.footer')
   @endsection

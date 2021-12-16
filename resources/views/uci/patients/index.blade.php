@@ -2,7 +2,7 @@
 
 @section('content')
 
-@include('partials.nav')
+@include('partials.uci.nav')
 
   <div class="az-content az-content-dashboard">
     <div class="container">
@@ -50,6 +50,7 @@
                           <th>Diagnosis</th>
                           <th>Status</th>
                           <th>Progress</th>
+                          <th>Action</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -75,6 +76,40 @@
                                         <span class="badge badge-secondary">{{ $item->progress }}</span>
                                     @endif
                                 </td>
+                                <td>
+                                    <span><a href="{{ route('patient-single-uci', $patient->patient_id) }}" title="View patient" class="btn btn-light"><i class="fa fa-eye"></i></a></span>
+                                    <span><a data-toggle="modal" href="#{{ $patient->patient_id }}" title="Change patient status" class="btn btn-light"><i class="fa fa-edit"></i></a></span>
+                                </td>
+                                <!-- Modal -->
+                                <div class="modal fade" id="{{ $patient->patient_id }}" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title">Change Patient Status</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form action="{{ route('change.status') }}" method="post">
+                                                    @csrf
+                                                    <input type="hidden" name="id" value="{{ $patient->patient_id }}">
+                                                    <select class="form-control" name="status" id="">
+                                                        <option value="normal">Normal</option>
+                                                        <option value="progressing">Progressing</option>
+                                                        <option value="critical">Critical</option>
+                                                        <option value="cured">Cured</option>
+                                                        <option value="dead">Dead</option>
+                                                    </select>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                <button type="submit" class="btn btn-primary">Submit</button>
+                                            </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
                               </tr>
 
                         @endforeach
@@ -89,6 +124,7 @@
       </div><!-- az-content-body -->
     </div>
   </div><!-- az-content -->
+
 
   @include('partials.footer')
 

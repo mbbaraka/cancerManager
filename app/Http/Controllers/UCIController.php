@@ -6,8 +6,11 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\UCI;
 use App\Models\Diagnosis;
+use App\Models\MedicalHistory;
 use App\Models\Patient;
 use App\Models\Referral;
+use App\Models\SocialHistory;
+use App\Models\SurgicalHistory;
 use Carbon\Carbon;
 use Faker\Calculator\Luhn;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
@@ -83,7 +86,7 @@ class UCIController extends Controller
         }
 
 
-        return view('home.index',
+        return view('uci.home.index',
         compact(
             'location_pajulu', 'location_adumi', 'location_oluko', 'location_logiri', 'location',
             'lung_cancer', 'breast_cancer', 'skin_cancer', 'cervical_cancer', 'cancer',
@@ -121,5 +124,40 @@ class UCIController extends Controller
         //     return redirect()->back()->withSuccess('Login details are not valid');
         // }
 
+    }
+
+    public function referred () {
+        $referrals = Referral::get();
+        return view('uci.patients.index', compact('referrals'));
+    }
+
+    // single patient view
+    public function singlePatient ($id) {
+        $patient = Patient::findOrFail($id);
+        // Getting patient diagnosis
+        $diag = Diagnosis::where('pat_id', $id)->first();
+        // Medical history
+        $history = MedicalHistory::first()->where('pat_id', $id)->pluck('disease');
+        $history = explode(',', $history);
+        // $history = json_decode($history);
+
+        // Surgical history
+        $surgical = SurgicalHistory::get()->where('pat_id', $id);
+        // social history
+        $social = SocialHistory::where('pat_id', $id)->first();
+        return view('uci.patients.view',
+            compact('patient', 'diag', 'history', 'surgical', 'social')
+        );
+    }
+
+    public function changeStatus (Request $request) {
+        $patient = Referral::where('pat_id', $request->id)->first();
+
+        $patient->progress = $request->status;
+
+        if ($patient->save()) {
+            toast('Changed patient status successfully', 'success');
+            return redirect()->back();
+        }
     }
 }

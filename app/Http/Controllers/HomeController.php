@@ -32,6 +32,7 @@ class HomeController extends Controller
 
         // location
         $location = Patient::get()->count();
+        
         if ($location <= 0) {
             $location = 1;
             $location_pajulu = 1;

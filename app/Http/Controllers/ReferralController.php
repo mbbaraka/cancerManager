@@ -88,12 +88,12 @@ class ReferralController extends Controller
     public function refer($id) {
 
 
-        $username = 'smsReminder'; //
-        $apiKey   = '863a87ae9c7504d87c1667c90b16bd5809bf33fc9ba28043bf9becea550d2aa9'; //
+        $username = env('SMS_USER'); //
+        $apiKey   = env('SMS_API_KEY '); //
         $AT       = new AfricasTalking($username, $apiKey);
 
         $check = Referral::where('pat_id', $id)->first();
-        if ($check >= 1) {
+        if ($check) {
             toast('Patient already referred!','warning');
             return redirect()->back();
         }

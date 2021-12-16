@@ -58,7 +58,7 @@
                     @csrf
 
                     <div class="row row-sm p-3">
-                        <div class="col-lg">
+                        <div class="col-lg"> 
                             <div class="form-group">
                               <label for="status">Marital Status</label>
                                 <select class="form-control @error('status') is-invalid @enderror" name="status" id="status">

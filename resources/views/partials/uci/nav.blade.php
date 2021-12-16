@@ -6,32 +6,23 @@
       </div><!-- az-header-left -->
       <div class="az-header-menu">
         <div class="az-header-menu-header">
-          <a href="{{ url('/') }}" class="az-logo"><span></span> CMS</a>
+          <a href="{{ url('/uci') }}" class="az-logo"><span></span> CMS</a>
           <a href="" class="close">&times;</a>
         </div><!-- az-header-menu-header -->
         <ul class="nav">
-          @if (Auth::guard('web'))
-          <li class="nav-item {{ request()->routeIs('home') ? 'active' : '' }}">
-            <a href="{{ url('/') }}" class="nav-link"><i class="typcn typcn-chart-area-outline"></i> Dashboard</a>
-          </li>
-          <li class="nav-item">
-            <a href="" class="nav-link with-sub {{ request()->is('/patient/*') ? 'active' : '' }}"><i class="typcn typcn-document"></i> Patients</a>
-            <nav class="az-menu-sub">
-              <a href="{{ route('new-patient') }}" class="nav-link">Add New</a>
-              <a href="{{ route('patient-index') }}" class="nav-link">View All</a>
-            </nav>
-          </li>
-          <li class="nav-item">
-            <a href="{{ route('referred-patients') }}" class="nav-link {{ (request()->is('/referred/*')) ? 'active' : '' }}"><i class="typcn typcn-chart-bar-outline"></i> Referred Patients</a>
-          </li>
-          <li class="nav-item">
-            <a href="" class="nav-link with-sub"><i class="typcn typcn-group"></i> Users</a>
-            <nav class="az-menu-sub">
-              <a href="{{ route('new.user') }}" class="nav-link">Add New</a>
-              <a href="{{ route('user.index') }}" class="nav-link">View All</a>
-            </nav>
-          </li>
-          @endif
+            <li class="nav-item active show">
+              <a href="{{ url('/uci') }}" class="nav-link"><i class="typcn typcn-chart-area-outline"></i> Dashboard</a>
+            </li>
+            {{--  <li class="nav-item">
+              <a href="" class="nav-link with-sub"><i class="typcn typcn-document"></i> Patients</a>
+              <nav class="az-menu-sub">
+                <a href="{{ route('new-patient') }}" class="nav-link">Add New</a>
+                <a href="{{ route('patient-index') }}" class="nav-link">View All</a>
+              </nav>
+            </li>  --}}
+            <li class="nav-item">
+              <a href="{{ route('uci-patient-referred') }}" class="nav-link"><i class="typcn typcn-chart-bar-outline"></i> Referred Patients</a>
+            </li>
          {{-- <li class="nav-item">
             <a href="form-elements.html" class="nav-link"><i class="typcn typcn-chart-bar-outline"></i> Forms</a>
           </li> --}}

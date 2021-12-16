@@ -15,7 +15,7 @@ class Patient extends Model
     public $incrementing = false;
 
 
-    public function diagnosis () {
+    public function diagnosis () { 
         return $this->hasOne(Diagnosis::class, 'pat_id', 'patient_id');
     }
 
